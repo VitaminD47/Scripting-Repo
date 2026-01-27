@@ -1,0 +1,17 @@
+dialing_code = {'England': '+44', 'Greece': '+30', 'Italy': '+39', 'Spain': '+34', 'France': '+33'}
+for code in dialing_code:
+    print('The Country code for {0} is {1}.'.format(code, dialing_code[code]))
+
+
+
+countries = {'England':{'code':'+44', 'capital_city':'London'}, 'France':{'code':'+33', 'capital_city':'Paris'}}
+for country in countries:
+    print("{} 's country info:" .format(country))
+    print(countries [country] ['code'])
+    print(countries [country] ['capital_city'])
+
+
+#this example shows a dictionary nested within another
+#value in dictionarynamehere.values() tells you if a key is present or not
+#dictionaryname.keys() returns only the keys present
+#dictionaryname.values() returns the values of the dictionary.

@@ -1,0 +1,6 @@
+bread = ['bagels', 'baguette', 'ciabatta']
+print(len(bread))
+
+bread.append('naan')
+print(len(bread))
+

@@ -1,0 +1,18 @@
+bread = ['bagels', 'baguette', 'ciabatta', 'crumpet', 'naan', 'pita', 'tortilla']
+for number in range (0, len(bread), 3):
+    print(bread[number], end=" ")
+    
+
+# remember you can sort as well, i.e sort() or sorted()
+# this is sort() : 
+
+bread = ['naan','baguette', 'tortilla', 'ciabatta', 'pita']
+bread.sort()
+print(bread)
+
+
+#alternatively, sorted():
+
+bread = ['naan','baguette', 'tortilla', 'ciabatta', 'pita']
+bread_in_order = sorted(bread)
+print(bread_in_order)

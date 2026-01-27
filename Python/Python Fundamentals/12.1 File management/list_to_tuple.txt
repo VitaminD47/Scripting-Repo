@@ -1,0 +1,18 @@
+# Original tuple with IP address, hostname, and model
+device_info = ("192.168.1.1", "switch1", "Cisco 3750")
+
+# Convert tuple to list
+device_list = list(device_info)
+
+# Remove old model from list
+device_list.remove("Cisco 3750")
+
+# Add new model to list
+device_list.append("Cisco 3850")
+
+# Convert list back to tuple
+device_info = tuple(device_list)
+
+
+
+

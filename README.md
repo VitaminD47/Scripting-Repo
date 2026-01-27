@@ -1,5 +1,5 @@
-This repository contains a combination of script files that I have mostly written in Python along with ones I obtained from lessons and courses. There are a few that were made for Ansible as well as part of a course.
-It is primarily for learning purposes, although there's definitely practical use for many of them. Most of the fundamentals of Python are inside of the lessons directories.
+This repository contains a combination of script files that are mostly in Python.  All scripts within the D417 Network Automation folder are original. The rest are pulled from lessons and labs from school. 
+It is primarily for learning purposes, although there's definitely practical use for many of them. 
 
 Thanks for looking,
 

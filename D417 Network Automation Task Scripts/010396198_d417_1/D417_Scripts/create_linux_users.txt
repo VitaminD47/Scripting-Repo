@@ -1,0 +1,29 @@
+---
+ - name: Create TestUser1 and TestUser2
+   hosts: linux
+   become: yes
+   become_method: sudo
+   gather_facts: false
+  
+   vars:
+    admin_group: sudo
+    admin_password: "WGU123"
+    host_mapper: 
+      "10.10.1.50": [TestUser1]
+      "10.10.1.60": [TestUser2]
+    
+  
+ 
+  
+   tasks:
+    - name: Create linux testbox admins  
+      ansible.builtin.user: 
+        name: "{{ item }}"
+        create_home: yes
+        shell: /bin/bash
+        groups: "{{ admin_group }}"
+        append: yes
+        #line 26 hashes the plaintext password when this runs
+        password: "{{ admin_password | password_hash('sha512')}}"
+        update_password: on_create #don't reset if user present
+      loop: "{{ host_mapper[inventory_hostname] }}"

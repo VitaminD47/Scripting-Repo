@@ -1,0 +1,101 @@
+from netmiko import ConnectHandler
+
+devices = [ 
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.5',
+        'username':'admin',
+        'password': '',
+    }, 
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.6',
+        'username':'admin',
+        'password': '',
+    },
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.7',
+        'username':'admin',
+        'password': '',
+    },
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.8',
+        'username':'admin',
+        'password': '',
+    },
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.24',
+        'username':'admin',
+        'password': '',
+    }
+]
+# Define VLAN creation, port assignment and forwarding commands
+commands = ['disable cli paging', 'create vlan User_Network tag 10', 'create vlan ACCT_Network tag 20', 'create vlan MGMT_Network tag 30', 'create vlan IT_Network tag 40']
+tag_IT = ["configure vlan it_network ipaddress 10.10.40.1 255.255.255.0", "configure vlan 10,20,30,40 add ports 1 tagged","configure vlan it_network add ports 2-12 untagged", 'enable ipforwarding vlan IT_Network']
+tag_MGMT = ["configure vlan mgmt_network ipaddress 10.10.30.1 255.255.255.0", "configure vlan 10,20,30,40 add ports 1 tagged","configure vlan mgmt_network add ports 2-12 untagged", 'enable ipforwarding vlan MGMT_Network']
+tag_ACCT = ["configure vlan acct_network ipaddress 10.10.20.1 255.255.255.0", "configure vlan 10,20,30,40 add ports 1 tagged","configure vlan acct_network add ports 2-12 untagged", 'enable ipforwarding vlan ACCT_Network']
+tag_User = ["configure vlan user_network ipaddress 10.10.10.1 255.255.255.0", "configure vlan 10,20,30,40 add ports 1 tagged","configure vlan user_network add ports 2-12 untagged", 'enable ipforwarding vlan User_Network']
+local_tagging = ["configure vlan 10,20,30,40 add ports 3,5,7,9 tagged", "enable ipforwarding vlan Default"]
+
+
+# Static routes to other VLANS. # local_switch is configured to route for VLAN 1 which is needed by Ansible Desktop.
+
+IT_routes = ["configure iproute add 10.10.10.0/24 10.10.1.22", "configure iproute add 10.10.20.0/24 10.10.1.32", "configure iproute add 10.10.30.0/24 10.10.1.31"]
+MGMT_routes = ["configure iproute add 10.10.10.0/24 10.10.1.22", "configure iproute add 10.10.20.0/24 10.10.1.32", "configure iproute add 10.10.40.0/24 10.10.1.30"]
+ACCT_routes = ["configure iproute add 10.10.10.0/24 10.10.1.22", "configure iproute add 10.10.30.0/24 10.10.1.31", "configure iproute add 10.10.40.0/24 10.10.1.30"]
+User_routes = ["configure iproute add 10.10.20.0/24 10.10.1.32", "configure iproute add 10.10.30.0/24 10.10.1.31", "configure iproute add 10.10.40.0/24 10.10.1.30"]
+local_routes = ["configure iproute add 10.10.10.0/24 10.10.1.22", "configure iproute add 10.10.20.0/24 10.10.1.32", "configure iproute add 10.10.30.0/24 10.10.1.31", "configure iproute add 10.10.40.0/24 10.10.1.30"]
+
+
+for device in devices:
+    print(f'Connecting to {device}...')
+    try:
+        connect_to_devices = ConnectHandler(**device)
+        output = connect_to_devices.send_config_set(commands, read_timeout=60)
+        print(output)
+        if device['host'] == '10.10.1.5':
+            port_config_IT = connect_to_devices.send_config_set(tag_IT)
+            route_config_IT = connect_to_devices.send_config_set(IT_routes)
+            vlan_default_forwarding = connect_to_devices.send_command("enable ipforwarding vlan Default")
+            print(port_config_IT)
+            print(route_config_IT)
+            print(vlan_default_forwarding)
+        if device['host'] == '10.10.1.6':
+            port_config_MGMT = connect_to_devices.send_config_set(tag_MGMT)
+            route_config_MGMT = connect_to_devices.send_config_set(MGMT_routes)
+            vlan_default_forwarding = connect_to_devices.send_command("enable ipforwarding vlan Default")
+            print(port_config_MGMT)
+            print(route_config_MGMT)
+            print(vlan_default_forwarding)
+        if device['host'] == '10.10.1.7':
+            port_config_ACCT = connect_to_devices.send_config_set(tag_ACCT)
+            route_config_ACCT = connect_to_devices.send_config_set(ACCT_routes)
+            vlan_default_forwarding = connect_to_devices.send_command("enable ipforwarding vlan Default")
+            print(port_config_ACCT)
+            print(route_config_ACCT)
+            print(vlan_default_forwarding)
+        if device['host'] == '10.10.1.8':
+            port_config_User = connect_to_devices.send_config_set(tag_User)
+            route_config_User = connect_to_devices.send_config_set(User_routes)
+            vlan_default_forwarding = connect_to_devices.send_command("enable ipforwarding vlan Default")
+            print(port_config_User)
+            print(route_config_User)
+            print(vlan_default_forwarding)
+        if device['host'] == '10.10.1.24':
+            local_config = connect_to_devices.send_config_set(local_tagging)
+            route_config_local = connect_to_devices.send_config_set(local_routes)
+            print(local_config)
+            print(route_config_local)
+
+        # Save the configuration
+        write_mem = connect_to_devices.send_command_timing("save configuration")
+        print(write_mem)
+        if "do you want to save" in write_mem.lower():
+            confirmation = connect_to_devices.send_command_timing("yes")
+            print(confirmation)
+
+    except Exception as e:
+        print(f"FAILED {device['host']}: {e}")  

@@ -1,0 +1,12 @@
+exos:
+  hosts:
+    10.10.1.5:
+    10.10.1.6:
+    10.10.1.7:
+    10.10.1.8:
+    10.10.1.24:
+  vars:
+    ansible_user: admin
+    ansible_password : ""
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: exos

@@ -1,0 +1,22 @@
+ - name: Create Windows Desktop Users 1-4
+   hosts: windows
+   gather_facts: false
+
+   vars:
+    desktop_password: "WGU123"
+    host_mapper: 
+      "10.10.1.35": [DesktopUser1]
+      "10.10.1.36": [DesktopUser2]
+      "10.10.1.43": [DesktopUser3]
+      "10.10.1.44": [DesktopUser4]
+
+   tasks:
+   - name: Create Windows Desktop Accounts
+     ansible.windows.win_user:
+      name: "{{ item }}"
+      password: "{{ desktop_password }}"
+      state: present
+      password_never_expires: true
+      groups:
+      - Administrators
+     loop: "{{ host_mapper[inventory_hostname] }}"

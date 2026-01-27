@@ -1,0 +1,39 @@
+## this script will identify existing VLANS on ExtremeOS devices.
+#it will need to log in to every switch (total of 5 to) to view current VLAN's used.
+# we will want to run it from the ansible desktop for testing.
+
+from netmiko import ConnectHandler
+
+extreme_switches = [ {
+    'device_type': 'extreme_exos',
+    'host': '10.10.1.24',
+    'username':'admin',
+    'password': '',
+}, {'device_type': 'extreme_exos',
+    'host': '10.10.1.5',
+    'username':'admin',
+    'password': '',}, 
+{'device_type': 'extreme_exos',
+    'host': '10.10.1.6',
+    'username':'admin',
+    'password': '',},
+{'device_type': 'extreme_exos',
+    'host': '10.10.1.7',
+    'username':'admin',
+    'password': '',},
+{'device_type': 'extreme_exos',
+    'host': '10.10.1.8',
+    'username':'admin',
+    'password': '',}
+]
+
+for device in extreme_switches:
+    print(f'Connecting to {device}...')
+    try:
+        connect_to_devices = ConnectHandler(**device)
+        connect_to_devices.send_command("disable cli paging")
+        output = connect_to_devices.send_command('show vlan')
+        
+        print(output)
+    except Exception as e:
+        print(f"FAILED {device['host']}: {e}")

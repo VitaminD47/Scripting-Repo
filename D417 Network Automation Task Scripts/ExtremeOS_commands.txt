@@ -1,0 +1,74 @@
+##work in progress
+# this script's purpose is to automate the creation/configuration of VLAN's on multiple access switches
+
+
+"""#ExtremeXOS#
+ExtremeXOS has an alias command that allows you use a term you prefer to execute any ExtremeXOS command, 
+including any options, arguments, and redirection.
+For example, you can create an alias named set for configure commands:
+# alias set "configure"
+You can now substitute the command set for all configure commands. 
+For example, you can type set vlan vlan_name tag tag instead of configure vlan vlan_name tag tag.
+
+#Default Login
+
+Username: admin 
+Password: <no password>
+
+
+
+# Creating VLAN on ExtremeXOS
+
+
+create vlan [vlan_name]
+configure [ {vlan} vlan_name | vlan vlan_list] add ports [port_list | all] {tagged tag | untagged}
+
+EXAMPLE:
+#create vlan data_100
+#configure vlan data_100 tag 100
+#configure vlan data_100 add port 1 untagged"""    ##add tagged instead of untagged if needed
+
+
+
+
+"""Configuring VLAN IP Addresses        
+
+
+configure [ {vlan} vlan_name | vlan vlan_id] ipaddress [ipaddress {netmask} | {ipNetmask} | ipv6-link-local | {eui64} ipv6_address_mask]
+unconfigure [ {vlan} vlan_name | vlan vlan_list] ipaddress
+
+
+EXAMPLE:
+configure vlan accounting ipaddress 10.12.123.1/24
+unconfigure vlan accounting ipaddress
+
+""" # Use this section in case layer 3 is needed (inter vlan routing)
+
+""""""
+
+"""Saving Configurations
+
+save configuration {primary | secondary | existing-config | new-config}
+
+EXAMPLE: save configuration (default primary.cfg)
+EXAMPLE: save configuration lab-test (save to lab-test.cfg)
+To automatically save configurations periodically:
+save configuration automatic {every minutes {primary | secondary | existing-config | new-config} | never}
+
+"""
+
+"""
+Backing Up Configurations
+
+upload configuration [hostname | ipaddress] filename {vr vr-name}
+EXAMPLE: upload configuration 192.168.10.75 primary.cfg vr vr-default
+
+
+
+Clearing Switch Configuration 
+
+EXAMPLE:
+X440-8p# unconfigure switch all
+ estore all factory defaults and reboot? (y/N) Yes
+
+"""

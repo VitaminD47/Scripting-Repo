@@ -1,0 +1,2079 @@
+[
+    {
+        "command_line": "/usr/bin/qemu-system-x86_64 -name Local_Switch -m 512M -smp cpus=1,sockets=1 -enable-kvm -machine smm=off -boot order=dc -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/62c05e66-1591-433a-b26b-86d49e939673/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 62c05e66-1591-433a-b26b-86d49e939673 -serial telnet:127.0.0.1:5001,server,nowait -monitor tcp:127.0.0.1:36465,server,nowait -net none -device rtl8139,mac=0c:c0:5e:66:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20037,localaddr=127.0.0.1:20036 -device rtl8139,mac=0c:c0:5e:66:00:01,netdev=gns3-1 -netdev socket,id=gns3-1,udp=127.0.0.1:20039,localaddr=127.0.0.1:20038 -device rtl8139,mac=0c:c0:5e:66:00:02,netdev=gns3-2 -netdev socket,id=gns3-2,udp=127.0.0.1:20041,localaddr=127.0.0.1:20040 -device rtl8139,mac=0c:c0:5e:66:00:03,netdev=gns3-3 -netdev socket,id=gns3-3,udp=127.0.0.1:20043,localaddr=127.0.0.1:20042 -device rtl8139,mac=0c:c0:5e:66:00:04,netdev=gns3-4 -netdev socket,id=gns3-4,udp=127.0.0.1:20045,localaddr=127.0.0.1:20044 -device rtl8139,mac=0c:c0:5e:66:00:05,netdev=gns3-5 -netdev socket,id=gns3-5,udp=127.0.0.1:20047,localaddr=127.0.0.1:20046 -device rtl8139,mac=0c:c0:5e:66:00:06,netdev=gns3-6 -netdev socket,id=gns3-6,udp=127.0.0.1:20049,localaddr=127.0.0.1:20048 -device rtl8139,mac=0c:c0:5e:66:00:07,netdev=gns3-7 -netdev socket,id=gns3-7,udp=127.0.0.1:20051,localaddr=127.0.0.1:20050 -device rtl8139,mac=0c:c0:5e:66:00:08,netdev=gns3-8 -netdev socket,id=gns3-8,udp=127.0.0.1:20053,localaddr=127.0.0.1:20052 -device rtl8139,mac=0c:c0:5e:66:00:09,netdev=gns3-9 -netdev socket,id=gns3-9,udp=127.0.0.1:20055,localaddr=127.0.0.1:20054 -device rtl8139,mac=0c:c0:5e:66:00:0a,netdev=gns3-10 -netdev socket,id=gns3-10,udp=127.0.0.1:20057,localaddr=127.0.0.1:20056 -device rtl8139,mac=0c:c0:5e:66:00:0b,netdev=gns3-11 -netdev socket,id=gns3-11,udp=127.0.0.1:20059,localaddr=127.0.0.1:20058 -device rtl8139,mac=0c:c0:5e:66:00:0c,netdev=gns3-12 -netdev socket,id=gns3-12,udp=127.0.0.1:20061,localaddr=127.0.0.1:20060 -display none -cpu core2duo",
+        "compute_id": "local",
+        "console": 5000,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "telnet",
+        "custom_adapters": [],
+        "first_port_name": "Mgmt",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "Local_Switch",
+            "x": 50,
+            "y": -29
+        },
+        "locked": false,
+        "name": "Local_Switch",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/62c05e66-1591-433a-b26b-86d49e939673",
+        "node_id": "62c05e66-1591-433a-b26b-86d49e939673",
+        "node_type": "qemu",
+        "port_name_format": "Port{port1}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:00",
+                "name": "Mgmt",
+                "port_number": 0,
+                "short_name": "Mgmt"
+            },
+            {
+                "adapter_number": 1,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:01",
+                "name": "Port1",
+                "port_number": 0,
+                "short_name": "Port1"
+            },
+            {
+                "adapter_number": 2,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:02",
+                "name": "Port2",
+                "port_number": 0,
+                "short_name": "Port2"
+            },
+            {
+                "adapter_number": 3,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:03",
+                "name": "Port3",
+                "port_number": 0,
+                "short_name": "Port3"
+            },
+            {
+                "adapter_number": 4,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:04",
+                "name": "Port4",
+                "port_number": 0,
+                "short_name": "Port4"
+            },
+            {
+                "adapter_number": 5,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:05",
+                "name": "Port5",
+                "port_number": 0,
+                "short_name": "Port5"
+            },
+            {
+                "adapter_number": 6,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:06",
+                "name": "Port6",
+                "port_number": 0,
+                "short_name": "Port6"
+            },
+            {
+                "adapter_number": 7,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:07",
+                "name": "Port7",
+                "port_number": 0,
+                "short_name": "Port7"
+            },
+            {
+                "adapter_number": 8,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:08",
+                "name": "Port8",
+                "port_number": 0,
+                "short_name": "Port8"
+            },
+            {
+                "adapter_number": 9,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:09",
+                "name": "Port9",
+                "port_number": 0,
+                "short_name": "Port9"
+            },
+            {
+                "adapter_number": 10,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:0a",
+                "name": "Port10",
+                "port_number": 0,
+                "short_name": "Port10"
+            },
+            {
+                "adapter_number": 11,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:0b",
+                "name": "Port11",
+                "port_number": 0,
+                "short_name": "Port11"
+            },
+            {
+                "adapter_number": 12,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c0:5e:66:00:0c",
+                "name": "Port12",
+                "port_number": 0,
+                "short_name": "Port12"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "rtl8139",
+            "adapters": 13,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "dc",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 1,
+            "create_config_disk": false,
+            "hda_disk_image": "EXOS-VM_v31.1.1.3.qcow2",
+            "hda_disk_image_md5sum": "e4936ad94a5304bfeeca8dfc6f285cc0",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:c0:5e:66:00:00",
+            "on_close": "power_off",
+            "options": "-cpu core2duo",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/usr/bin/qemu-system-x86_64",
+            "ram": 512,
+            "replicate_network_connection_state": true,
+            "usage": "Boot up and login is admin with no password."
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/switch_multilayer.svg",
+        "template_id": "7f7152c0-4ac2-4879-b061-3f0de2ae1d37",
+        "width": 60,
+        "x": -48,
+        "y": -180,
+        "z": 1
+    },
+    {
+        "command_line": "/usr/bin/qemu-system-x86_64 -name IT_Network -m 512M -smp cpus=1,sockets=1 -enable-kvm -machine smm=off -boot order=dc -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/7e1cb285-05ee-4ab9-8903-270137abed80/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 7e1cb285-05ee-4ab9-8903-270137abed80 -serial telnet:127.0.0.1:5003,server,nowait -monitor tcp:127.0.0.1:34693,server,nowait -net none -device rtl8139,mac=0c:1c:b2:85:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20089,localaddr=127.0.0.1:20088 -device rtl8139,mac=0c:1c:b2:85:00:01,netdev=gns3-1 -netdev socket,id=gns3-1,udp=127.0.0.1:20091,localaddr=127.0.0.1:20090 -device rtl8139,mac=0c:1c:b2:85:00:02,netdev=gns3-2 -netdev socket,id=gns3-2,udp=127.0.0.1:20093,localaddr=127.0.0.1:20092 -device rtl8139,mac=0c:1c:b2:85:00:03,netdev=gns3-3 -netdev socket,id=gns3-3,udp=127.0.0.1:20095,localaddr=127.0.0.1:20094 -device rtl8139,mac=0c:1c:b2:85:00:04,netdev=gns3-4 -netdev socket,id=gns3-4,udp=127.0.0.1:20097,localaddr=127.0.0.1:20096 -device rtl8139,mac=0c:1c:b2:85:00:05,netdev=gns3-5 -netdev socket,id=gns3-5,udp=127.0.0.1:20099,localaddr=127.0.0.1:20098 -device rtl8139,mac=0c:1c:b2:85:00:06,netdev=gns3-6 -netdev socket,id=gns3-6,udp=127.0.0.1:20101,localaddr=127.0.0.1:20100 -device rtl8139,mac=0c:1c:b2:85:00:07,netdev=gns3-7 -netdev socket,id=gns3-7,udp=127.0.0.1:20103,localaddr=127.0.0.1:20102 -device rtl8139,mac=0c:1c:b2:85:00:08,netdev=gns3-8 -netdev socket,id=gns3-8,udp=127.0.0.1:20105,localaddr=127.0.0.1:20104 -device rtl8139,mac=0c:1c:b2:85:00:09,netdev=gns3-9 -netdev socket,id=gns3-9,udp=127.0.0.1:20107,localaddr=127.0.0.1:20106 -device rtl8139,mac=0c:1c:b2:85:00:0a,netdev=gns3-10 -netdev socket,id=gns3-10,udp=127.0.0.1:20109,localaddr=127.0.0.1:20108 -device rtl8139,mac=0c:1c:b2:85:00:0b,netdev=gns3-11 -netdev socket,id=gns3-11,udp=127.0.0.1:20111,localaddr=127.0.0.1:20110 -device rtl8139,mac=0c:1c:b2:85:00:0c,netdev=gns3-12 -netdev socket,id=gns3-12,udp=127.0.0.1:20113,localaddr=127.0.0.1:20112 -display none -cpu core2duo",
+        "compute_id": "local",
+        "console": 5002,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "telnet",
+        "custom_adapters": [],
+        "first_port_name": "Mgmt",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "IT_Network",
+            "x": -11,
+            "y": -25
+        },
+        "locked": false,
+        "name": "IT_Network",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/7e1cb285-05ee-4ab9-8903-270137abed80",
+        "node_id": "7e1cb285-05ee-4ab9-8903-270137abed80",
+        "node_type": "qemu",
+        "port_name_format": "Port{port1}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:00",
+                "name": "Mgmt",
+                "port_number": 0,
+                "short_name": "Mgmt"
+            },
+            {
+                "adapter_number": 1,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:01",
+                "name": "Port1",
+                "port_number": 0,
+                "short_name": "Port1"
+            },
+            {
+                "adapter_number": 2,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:02",
+                "name": "Port2",
+                "port_number": 0,
+                "short_name": "Port2"
+            },
+            {
+                "adapter_number": 3,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:03",
+                "name": "Port3",
+                "port_number": 0,
+                "short_name": "Port3"
+            },
+            {
+                "adapter_number": 4,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:04",
+                "name": "Port4",
+                "port_number": 0,
+                "short_name": "Port4"
+            },
+            {
+                "adapter_number": 5,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:05",
+                "name": "Port5",
+                "port_number": 0,
+                "short_name": "Port5"
+            },
+            {
+                "adapter_number": 6,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:06",
+                "name": "Port6",
+                "port_number": 0,
+                "short_name": "Port6"
+            },
+            {
+                "adapter_number": 7,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:07",
+                "name": "Port7",
+                "port_number": 0,
+                "short_name": "Port7"
+            },
+            {
+                "adapter_number": 8,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:08",
+                "name": "Port8",
+                "port_number": 0,
+                "short_name": "Port8"
+            },
+            {
+                "adapter_number": 9,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:09",
+                "name": "Port9",
+                "port_number": 0,
+                "short_name": "Port9"
+            },
+            {
+                "adapter_number": 10,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:0a",
+                "name": "Port10",
+                "port_number": 0,
+                "short_name": "Port10"
+            },
+            {
+                "adapter_number": 11,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:0b",
+                "name": "Port11",
+                "port_number": 0,
+                "short_name": "Port11"
+            },
+            {
+                "adapter_number": 12,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:1c:b2:85:00:0c",
+                "name": "Port12",
+                "port_number": 0,
+                "short_name": "Port12"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "rtl8139",
+            "adapters": 13,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "dc",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 1,
+            "create_config_disk": false,
+            "hda_disk_image": "EXOS-VM_v31.1.1.3.qcow2",
+            "hda_disk_image_md5sum": "e4936ad94a5304bfeeca8dfc6f285cc0",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:1c:b2:85:00:00",
+            "on_close": "power_off",
+            "options": "-cpu core2duo",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/usr/bin/qemu-system-x86_64",
+            "ram": 512,
+            "replicate_network_connection_state": true,
+            "usage": "Boot up and login is admin with no password."
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/switch_multilayer.svg",
+        "template_id": "7f7152c0-4ac2-4879-b061-3f0de2ae1d37",
+        "width": 60,
+        "x": 149,
+        "y": -58,
+        "z": 1
+    },
+    {
+        "command_line": "/usr/bin/qemu-system-x86_64 -name MGMT_Network -m 512M -smp cpus=1,sockets=1 -enable-kvm -machine smm=off -boot order=dc -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/67cc785d-2fa6-4af0-896c-5342325dc03d/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 67cc785d-2fa6-4af0-896c-5342325dc03d -serial telnet:127.0.0.1:5005,server,nowait -monitor tcp:127.0.0.1:44857,server,nowait -net none -device rtl8139,mac=0c:cc:78:5d:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20063,localaddr=127.0.0.1:20062 -device rtl8139,mac=0c:cc:78:5d:00:01,netdev=gns3-1 -netdev socket,id=gns3-1,udp=127.0.0.1:20065,localaddr=127.0.0.1:20064 -device rtl8139,mac=0c:cc:78:5d:00:02,netdev=gns3-2 -netdev socket,id=gns3-2,udp=127.0.0.1:20067,localaddr=127.0.0.1:20066 -device rtl8139,mac=0c:cc:78:5d:00:03,netdev=gns3-3 -netdev socket,id=gns3-3,udp=127.0.0.1:20069,localaddr=127.0.0.1:20068 -device rtl8139,mac=0c:cc:78:5d:00:04,netdev=gns3-4 -netdev socket,id=gns3-4,udp=127.0.0.1:20071,localaddr=127.0.0.1:20070 -device rtl8139,mac=0c:cc:78:5d:00:05,netdev=gns3-5 -netdev socket,id=gns3-5,udp=127.0.0.1:20073,localaddr=127.0.0.1:20072 -device rtl8139,mac=0c:cc:78:5d:00:06,netdev=gns3-6 -netdev socket,id=gns3-6,udp=127.0.0.1:20075,localaddr=127.0.0.1:20074 -device rtl8139,mac=0c:cc:78:5d:00:07,netdev=gns3-7 -netdev socket,id=gns3-7,udp=127.0.0.1:20077,localaddr=127.0.0.1:20076 -device rtl8139,mac=0c:cc:78:5d:00:08,netdev=gns3-8 -netdev socket,id=gns3-8,udp=127.0.0.1:20079,localaddr=127.0.0.1:20078 -device rtl8139,mac=0c:cc:78:5d:00:09,netdev=gns3-9 -netdev socket,id=gns3-9,udp=127.0.0.1:20081,localaddr=127.0.0.1:20080 -device rtl8139,mac=0c:cc:78:5d:00:0a,netdev=gns3-10 -netdev socket,id=gns3-10,udp=127.0.0.1:20083,localaddr=127.0.0.1:20082 -device rtl8139,mac=0c:cc:78:5d:00:0b,netdev=gns3-11 -netdev socket,id=gns3-11,udp=127.0.0.1:20085,localaddr=127.0.0.1:20084 -device rtl8139,mac=0c:cc:78:5d:00:0c,netdev=gns3-12 -netdev socket,id=gns3-12,udp=127.0.0.1:20087,localaddr=127.0.0.1:20086 -display none -cpu core2duo",
+        "compute_id": "local",
+        "console": 5004,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "telnet",
+        "custom_adapters": [],
+        "first_port_name": "Mgmt",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "MGMT_Network",
+            "x": 53,
+            "y": -7
+        },
+        "locked": false,
+        "name": "MGMT_Network",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/67cc785d-2fa6-4af0-896c-5342325dc03d",
+        "node_id": "67cc785d-2fa6-4af0-896c-5342325dc03d",
+        "node_type": "qemu",
+        "port_name_format": "Port{port1}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:00",
+                "name": "Mgmt",
+                "port_number": 0,
+                "short_name": "Mgmt"
+            },
+            {
+                "adapter_number": 1,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:01",
+                "name": "Port1",
+                "port_number": 0,
+                "short_name": "Port1"
+            },
+            {
+                "adapter_number": 2,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:02",
+                "name": "Port2",
+                "port_number": 0,
+                "short_name": "Port2"
+            },
+            {
+                "adapter_number": 3,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:03",
+                "name": "Port3",
+                "port_number": 0,
+                "short_name": "Port3"
+            },
+            {
+                "adapter_number": 4,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:04",
+                "name": "Port4",
+                "port_number": 0,
+                "short_name": "Port4"
+            },
+            {
+                "adapter_number": 5,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:05",
+                "name": "Port5",
+                "port_number": 0,
+                "short_name": "Port5"
+            },
+            {
+                "adapter_number": 6,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:06",
+                "name": "Port6",
+                "port_number": 0,
+                "short_name": "Port6"
+            },
+            {
+                "adapter_number": 7,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:07",
+                "name": "Port7",
+                "port_number": 0,
+                "short_name": "Port7"
+            },
+            {
+                "adapter_number": 8,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:08",
+                "name": "Port8",
+                "port_number": 0,
+                "short_name": "Port8"
+            },
+            {
+                "adapter_number": 9,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:09",
+                "name": "Port9",
+                "port_number": 0,
+                "short_name": "Port9"
+            },
+            {
+                "adapter_number": 10,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:0a",
+                "name": "Port10",
+                "port_number": 0,
+                "short_name": "Port10"
+            },
+            {
+                "adapter_number": 11,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:0b",
+                "name": "Port11",
+                "port_number": 0,
+                "short_name": "Port11"
+            },
+            {
+                "adapter_number": 12,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cc:78:5d:00:0c",
+                "name": "Port12",
+                "port_number": 0,
+                "short_name": "Port12"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "rtl8139",
+            "adapters": 13,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "dc",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 1,
+            "create_config_disk": false,
+            "hda_disk_image": "EXOS-VM_v31.1.1.3.qcow2",
+            "hda_disk_image_md5sum": "e4936ad94a5304bfeeca8dfc6f285cc0",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:cc:78:5d:00:00",
+            "on_close": "power_off",
+            "options": "-cpu core2duo",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/usr/bin/qemu-system-x86_64",
+            "ram": 512,
+            "replicate_network_connection_state": true,
+            "usage": "Boot up and login is admin with no password."
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/switch_multilayer.svg",
+        "template_id": "7f7152c0-4ac2-4879-b061-3f0de2ae1d37",
+        "width": 60,
+        "x": -51,
+        "y": -3,
+        "z": 1
+    },
+    {
+        "command_line": "/usr/bin/qemu-system-x86_64 -name ACCT_Network -m 512M -smp cpus=1,sockets=1 -enable-kvm -machine smm=off -boot order=dc -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/46403407-20d7-4b01-932c-2bd1b2b1e64a/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 46403407-20d7-4b01-932c-2bd1b2b1e64a -serial telnet:127.0.0.1:5007,server,nowait -monitor tcp:127.0.0.1:36423,server,nowait -net none -device rtl8139,mac=0c:40:34:07:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20115,localaddr=127.0.0.1:20114 -device rtl8139,mac=0c:40:34:07:00:01,netdev=gns3-1 -netdev socket,id=gns3-1,udp=127.0.0.1:20117,localaddr=127.0.0.1:20116 -device rtl8139,mac=0c:40:34:07:00:02,netdev=gns3-2 -netdev socket,id=gns3-2,udp=127.0.0.1:20119,localaddr=127.0.0.1:20118 -device rtl8139,mac=0c:40:34:07:00:03,netdev=gns3-3 -netdev socket,id=gns3-3,udp=127.0.0.1:20121,localaddr=127.0.0.1:20120 -device rtl8139,mac=0c:40:34:07:00:04,netdev=gns3-4 -netdev socket,id=gns3-4,udp=127.0.0.1:20123,localaddr=127.0.0.1:20122 -device rtl8139,mac=0c:40:34:07:00:05,netdev=gns3-5 -netdev socket,id=gns3-5,udp=127.0.0.1:20125,localaddr=127.0.0.1:20124 -device rtl8139,mac=0c:40:34:07:00:06,netdev=gns3-6 -netdev socket,id=gns3-6,udp=127.0.0.1:20127,localaddr=127.0.0.1:20126 -device rtl8139,mac=0c:40:34:07:00:07,netdev=gns3-7 -netdev socket,id=gns3-7,udp=127.0.0.1:20129,localaddr=127.0.0.1:20128 -device rtl8139,mac=0c:40:34:07:00:08,netdev=gns3-8 -netdev socket,id=gns3-8,udp=127.0.0.1:20131,localaddr=127.0.0.1:20130 -device rtl8139,mac=0c:40:34:07:00:09,netdev=gns3-9 -netdev socket,id=gns3-9,udp=127.0.0.1:20133,localaddr=127.0.0.1:20132 -device rtl8139,mac=0c:40:34:07:00:0a,netdev=gns3-10 -netdev socket,id=gns3-10,udp=127.0.0.1:20135,localaddr=127.0.0.1:20134 -device rtl8139,mac=0c:40:34:07:00:0b,netdev=gns3-11 -netdev socket,id=gns3-11,udp=127.0.0.1:20137,localaddr=127.0.0.1:20136 -device rtl8139,mac=0c:40:34:07:00:0c,netdev=gns3-12 -netdev socket,id=gns3-12,udp=127.0.0.1:20139,localaddr=127.0.0.1:20138 -display none -cpu core2duo",
+        "compute_id": "local",
+        "console": 5006,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "telnet",
+        "custom_adapters": [],
+        "first_port_name": "Mgmt",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "ACCT_Network",
+            "x": -21,
+            "y": -25
+        },
+        "locked": false,
+        "name": "ACCT_Network",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/46403407-20d7-4b01-932c-2bd1b2b1e64a",
+        "node_id": "46403407-20d7-4b01-932c-2bd1b2b1e64a",
+        "node_type": "qemu",
+        "port_name_format": "Port{port1}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:00",
+                "name": "Mgmt",
+                "port_number": 0,
+                "short_name": "Mgmt"
+            },
+            {
+                "adapter_number": 1,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:01",
+                "name": "Port1",
+                "port_number": 0,
+                "short_name": "Port1"
+            },
+            {
+                "adapter_number": 2,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:02",
+                "name": "Port2",
+                "port_number": 0,
+                "short_name": "Port2"
+            },
+            {
+                "adapter_number": 3,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:03",
+                "name": "Port3",
+                "port_number": 0,
+                "short_name": "Port3"
+            },
+            {
+                "adapter_number": 4,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:04",
+                "name": "Port4",
+                "port_number": 0,
+                "short_name": "Port4"
+            },
+            {
+                "adapter_number": 5,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:05",
+                "name": "Port5",
+                "port_number": 0,
+                "short_name": "Port5"
+            },
+            {
+                "adapter_number": 6,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:06",
+                "name": "Port6",
+                "port_number": 0,
+                "short_name": "Port6"
+            },
+            {
+                "adapter_number": 7,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:07",
+                "name": "Port7",
+                "port_number": 0,
+                "short_name": "Port7"
+            },
+            {
+                "adapter_number": 8,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:08",
+                "name": "Port8",
+                "port_number": 0,
+                "short_name": "Port8"
+            },
+            {
+                "adapter_number": 9,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:09",
+                "name": "Port9",
+                "port_number": 0,
+                "short_name": "Port9"
+            },
+            {
+                "adapter_number": 10,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:0a",
+                "name": "Port10",
+                "port_number": 0,
+                "short_name": "Port10"
+            },
+            {
+                "adapter_number": 11,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:0b",
+                "name": "Port11",
+                "port_number": 0,
+                "short_name": "Port11"
+            },
+            {
+                "adapter_number": 12,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:40:34:07:00:0c",
+                "name": "Port12",
+                "port_number": 0,
+                "short_name": "Port12"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "rtl8139",
+            "adapters": 13,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "dc",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 1,
+            "create_config_disk": false,
+            "hda_disk_image": "EXOS-VM_v31.1.1.3.qcow2",
+            "hda_disk_image_md5sum": "e4936ad94a5304bfeeca8dfc6f285cc0",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:40:34:07:00:00",
+            "on_close": "power_off",
+            "options": "-cpu core2duo",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/usr/bin/qemu-system-x86_64",
+            "ram": 512,
+            "replicate_network_connection_state": true,
+            "usage": "Boot up and login is admin with no password."
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/switch_multilayer.svg",
+        "template_id": "7f7152c0-4ac2-4879-b061-3f0de2ae1d37",
+        "width": 60,
+        "x": -247,
+        "y": -71,
+        "z": 1
+    },
+    {
+        "command_line": "/usr/bin/qemu-system-x86_64 -name User_Network -m 512M -smp cpus=1,sockets=1 -enable-kvm -machine smm=off -boot order=dc -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/91e0f20b-40a4-48b9-88c2-a988f708239d/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 91e0f20b-40a4-48b9-88c2-a988f708239d -serial telnet:127.0.0.1:5009,server,nowait -monitor tcp:127.0.0.1:33103,server,nowait -net none -device rtl8139,mac=0c:e0:f2:0b:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20141,localaddr=127.0.0.1:20140 -device rtl8139,mac=0c:e0:f2:0b:00:01,netdev=gns3-1 -netdev socket,id=gns3-1,udp=127.0.0.1:20143,localaddr=127.0.0.1:20142 -device rtl8139,mac=0c:e0:f2:0b:00:02,netdev=gns3-2 -netdev socket,id=gns3-2,udp=127.0.0.1:20145,localaddr=127.0.0.1:20144 -device rtl8139,mac=0c:e0:f2:0b:00:03,netdev=gns3-3 -netdev socket,id=gns3-3,udp=127.0.0.1:20147,localaddr=127.0.0.1:20146 -device rtl8139,mac=0c:e0:f2:0b:00:04,netdev=gns3-4 -netdev socket,id=gns3-4,udp=127.0.0.1:20149,localaddr=127.0.0.1:20148 -device rtl8139,mac=0c:e0:f2:0b:00:05,netdev=gns3-5 -netdev socket,id=gns3-5,udp=127.0.0.1:20151,localaddr=127.0.0.1:20150 -device rtl8139,mac=0c:e0:f2:0b:00:06,netdev=gns3-6 -netdev socket,id=gns3-6,udp=127.0.0.1:20153,localaddr=127.0.0.1:20152 -device rtl8139,mac=0c:e0:f2:0b:00:07,netdev=gns3-7 -netdev socket,id=gns3-7,udp=127.0.0.1:20155,localaddr=127.0.0.1:20154 -device rtl8139,mac=0c:e0:f2:0b:00:08,netdev=gns3-8 -netdev socket,id=gns3-8,udp=127.0.0.1:20157,localaddr=127.0.0.1:20156 -device rtl8139,mac=0c:e0:f2:0b:00:09,netdev=gns3-9 -netdev socket,id=gns3-9,udp=127.0.0.1:20159,localaddr=127.0.0.1:20158 -device rtl8139,mac=0c:e0:f2:0b:00:0a,netdev=gns3-10 -netdev socket,id=gns3-10,udp=127.0.0.1:20161,localaddr=127.0.0.1:20160 -device rtl8139,mac=0c:e0:f2:0b:00:0b,netdev=gns3-11 -netdev socket,id=gns3-11,udp=127.0.0.1:20163,localaddr=127.0.0.1:20162 -device rtl8139,mac=0c:e0:f2:0b:00:0c,netdev=gns3-12 -netdev socket,id=gns3-12,udp=127.0.0.1:20165,localaddr=127.0.0.1:20164 -display none -cpu core2duo",
+        "compute_id": "local",
+        "console": 5008,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "telnet",
+        "custom_adapters": [],
+        "first_port_name": "Mgmt",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "User_Network",
+            "x": 29,
+            "y": -24
+        },
+        "locked": false,
+        "name": "User_Network",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/91e0f20b-40a4-48b9-88c2-a988f708239d",
+        "node_id": "91e0f20b-40a4-48b9-88c2-a988f708239d",
+        "node_type": "qemu",
+        "port_name_format": "Port{port1}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:00",
+                "name": "Mgmt",
+                "port_number": 0,
+                "short_name": "Mgmt"
+            },
+            {
+                "adapter_number": 1,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:01",
+                "name": "Port1",
+                "port_number": 0,
+                "short_name": "Port1"
+            },
+            {
+                "adapter_number": 2,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:02",
+                "name": "Port2",
+                "port_number": 0,
+                "short_name": "Port2"
+            },
+            {
+                "adapter_number": 3,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:03",
+                "name": "Port3",
+                "port_number": 0,
+                "short_name": "Port3"
+            },
+            {
+                "adapter_number": 4,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:04",
+                "name": "Port4",
+                "port_number": 0,
+                "short_name": "Port4"
+            },
+            {
+                "adapter_number": 5,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:05",
+                "name": "Port5",
+                "port_number": 0,
+                "short_name": "Port5"
+            },
+            {
+                "adapter_number": 6,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:06",
+                "name": "Port6",
+                "port_number": 0,
+                "short_name": "Port6"
+            },
+            {
+                "adapter_number": 7,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:07",
+                "name": "Port7",
+                "port_number": 0,
+                "short_name": "Port7"
+            },
+            {
+                "adapter_number": 8,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:08",
+                "name": "Port8",
+                "port_number": 0,
+                "short_name": "Port8"
+            },
+            {
+                "adapter_number": 9,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:09",
+                "name": "Port9",
+                "port_number": 0,
+                "short_name": "Port9"
+            },
+            {
+                "adapter_number": 10,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:0a",
+                "name": "Port10",
+                "port_number": 0,
+                "short_name": "Port10"
+            },
+            {
+                "adapter_number": 11,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:0b",
+                "name": "Port11",
+                "port_number": 0,
+                "short_name": "Port11"
+            },
+            {
+                "adapter_number": 12,
+                "adapter_type": "rtl8139",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e0:f2:0b:00:0c",
+                "name": "Port12",
+                "port_number": 0,
+                "short_name": "Port12"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "rtl8139",
+            "adapters": 13,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "dc",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 1,
+            "create_config_disk": false,
+            "hda_disk_image": "EXOS-VM_v31.1.1.3.qcow2",
+            "hda_disk_image_md5sum": "e4936ad94a5304bfeeca8dfc6f285cc0",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:e0:f2:0b:00:00",
+            "on_close": "power_off",
+            "options": "-cpu core2duo",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/usr/bin/qemu-system-x86_64",
+            "ram": 512,
+            "replicate_network_connection_state": true,
+            "usage": "Boot up and login is admin with no password."
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/switch_multilayer.svg",
+        "template_id": "7f7152c0-4ac2-4879-b061-3f0de2ae1d37",
+        "width": 60,
+        "x": -317,
+        "y": -247,
+        "z": 1
+    },
+    {
+        "command_line": "/bin/qemu-system-x86_64 -name Ansible_Desktop -m 4096M -smp cpus=2,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/44577e50-b63e-4f18-a9e2-8438e017e616/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 44577e50-b63e-4f18-a9e2-8438e017e616 -vnc 0.0.0.0:0 -monitor tcp:127.0.0.1:33717,server,nowait -net none -device e1000,mac=0c:57:7e:50:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20167,localaddr=127.0.0.1:20166",
+        "compute_id": "local",
+        "console": 5900,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "vnc",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "Ansible_Desktop",
+            "x": -28,
+            "y": -25
+        },
+        "locked": false,
+        "name": "Ansible_Desktop",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/44577e50-b63e-4f18-a9e2-8438e017e616",
+        "node_id": "44577e50-b63e-4f18-a9e2-8438e017e616",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:57:7e:50:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 1,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 2,
+            "create_config_disk": false,
+            "hda_disk_image": "Ubuntu Desktop 20.qcow2",
+            "hda_disk_image_md5sum": "1dc6b22dd70edc5dd92f08dc081da84c",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:57:7e:50:00:00",
+            "on_close": "power_off",
+            "options": "",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": ""
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/client.svg",
+        "template_id": "646ca1f7-60d0-4525-8f00-7596a9461f6d",
+        "width": 60,
+        "x": 267,
+        "y": -239,
+        "z": 1
+    },
+    {
+        "command_line": "/bin/qemu-system-x86_64 -name Domain_Controller -m 4096M -smp cpus=2,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/944f61d5-093d-485a-ad16-d4000246e0e9/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 944f61d5-093d-485a-ad16-d4000246e0e9 -vnc 0.0.0.0:1 -monitor tcp:127.0.0.1:34127,server,nowait -net none -device e1000,mac=0c:4f:61:d5:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20169,localaddr=127.0.0.1:20168 -usbdevice tablet",
+        "compute_id": "local",
+        "console": 5901,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "vnc",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "Domain_Controller",
+            "x": -28,
+            "y": 61
+        },
+        "locked": false,
+        "name": "Domain_Controller",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/944f61d5-093d-485a-ad16-d4000246e0e9",
+        "node_id": "944f61d5-093d-485a-ad16-d4000246e0e9",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:4f:61:d5:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 1,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 2,
+            "create_config_disk": false,
+            "hda_disk_image": "Server2019.vmdk",
+            "hda_disk_image_md5sum": "cde2476ca8c4f26259ccd5e44e26faa4",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:4f:61:d5:00:00",
+            "on_close": "shutdown_signal",
+            "options": "-usbdevice tablet",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": ""
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/client.svg",
+        "template_id": "6fa97e28-86e6-4319-ac2f-802369b65472",
+        "width": 60,
+        "x": 238,
+        "y": 96,
+        "z": 1
+    },
+    {
+        "command_line": "/bin/qemu-system-x86_64 -name WindowsDesktop-1 -m 4096M -smp cpus=2,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/884b3c0a-f983-4ade-a029-26bebce6eb20/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 884b3c0a-f983-4ade-a029-26bebce6eb20 -vnc 0.0.0.0:2 -monitor tcp:127.0.0.1:41617,server,nowait -net none -device e1000,mac=0c:4b:3c:0a:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20171,localaddr=127.0.0.1:20170 -usbdevice tablet",
+        "compute_id": "local",
+        "console": 5902,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "vnc",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "WindowsDesktop-1",
+            "x": -36,
+            "y": -25
+        },
+        "locked": false,
+        "name": "WindowsDesktop-1",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/884b3c0a-f983-4ade-a029-26bebce6eb20",
+        "node_id": "884b3c0a-f983-4ade-a029-26bebce6eb20",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:4b:3c:0a:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 1,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 2,
+            "create_config_disk": false,
+            "hda_disk_image": "windows 10-new.vmdk",
+            "hda_disk_image_md5sum": "35ed53dae2f2167d8b35daf785d8bdd5",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:4b:3c:0a:00:00",
+            "on_close": "shutdown_signal",
+            "options": "-usbdevice tablet",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": ""
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/client.svg",
+        "template_id": "922159e1-86e5-49d1-81f1-ffa51a452188",
+        "width": 60,
+        "x": -397,
+        "y": -355,
+        "z": 1
+    },
+    {
+        "command_line": "/bin/qemu-system-x86_64 -name WindowsDesktop-2 -m 4096M -smp cpus=2,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/8859fd86-680e-4fb0-90c8-1d0f118b4487/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 8859fd86-680e-4fb0-90c8-1d0f118b4487 -vnc 0.0.0.0:3 -monitor tcp:127.0.0.1:35535,server,nowait -net none -device e1000,mac=0c:59:fd:86:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20173,localaddr=127.0.0.1:20172 -usbdevice tablet",
+        "compute_id": "local",
+        "console": 5903,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "vnc",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "WindowsDesktop-2",
+            "x": -134,
+            "y": 8
+        },
+        "locked": false,
+        "name": "WindowsDesktop-2",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/8859fd86-680e-4fb0-90c8-1d0f118b4487",
+        "node_id": "8859fd86-680e-4fb0-90c8-1d0f118b4487",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:59:fd:86:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 1,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 2,
+            "create_config_disk": false,
+            "hda_disk_image": "windows 10-new.vmdk",
+            "hda_disk_image_md5sum": "35ed53dae2f2167d8b35daf785d8bdd5",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:59:fd:86:00:00",
+            "on_close": "shutdown_signal",
+            "options": "-usbdevice tablet",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": ""
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/client.svg",
+        "template_id": "922159e1-86e5-49d1-81f1-ffa51a452188",
+        "width": 60,
+        "x": -469,
+        "y": -288,
+        "z": 1
+    },
+    {
+        "command_line": "/bin/qemu-system-x86_64 -name WindowsDesktop-3 -m 4096M -smp cpus=2,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/26e207f3-e4af-42c2-b60f-1bd41a0660ed/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 26e207f3-e4af-42c2-b60f-1bd41a0660ed -vnc 0.0.0.0:4 -monitor tcp:127.0.0.1:40109,server,nowait -net none -device e1000,mac=0c:e2:07:f3:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20175,localaddr=127.0.0.1:20174 -usbdevice tablet",
+        "compute_id": "local",
+        "console": 5904,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "vnc",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "WindowsDesktop-3",
+            "x": -132,
+            "y": 21
+        },
+        "locked": false,
+        "name": "WindowsDesktop-3",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/26e207f3-e4af-42c2-b60f-1bd41a0660ed",
+        "node_id": "26e207f3-e4af-42c2-b60f-1bd41a0660ed",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:e2:07:f3:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 1,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 2,
+            "create_config_disk": false,
+            "hda_disk_image": "windows 10-new.vmdk",
+            "hda_disk_image_md5sum": "35ed53dae2f2167d8b35daf785d8bdd5",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:e2:07:f3:00:00",
+            "on_close": "shutdown_signal",
+            "options": "-usbdevice tablet",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": ""
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/client.svg",
+        "template_id": "922159e1-86e5-49d1-81f1-ffa51a452188",
+        "width": 60,
+        "x": -463,
+        "y": -216,
+        "z": 1
+    },
+    {
+        "command_line": "/bin/qemu-system-x86_64 -name WindowsDesktop-4 -m 4096M -smp cpus=2,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/f5467435-a015-407e-8747-f2ace307fd70/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid f5467435-a015-407e-8747-f2ace307fd70 -vnc 0.0.0.0:5 -monitor tcp:127.0.0.1:43507,server,nowait -net none -device e1000,mac=0c:46:74:35:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20193,localaddr=127.0.0.1:20192 -usbdevice tablet",
+        "compute_id": "local",
+        "console": 5905,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "vnc",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "WindowsDesktop-4",
+            "x": -138,
+            "y": 28
+        },
+        "locked": false,
+        "name": "WindowsDesktop-4",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/f5467435-a015-407e-8747-f2ace307fd70",
+        "node_id": "f5467435-a015-407e-8747-f2ace307fd70",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:46:74:35:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 1,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 2,
+            "create_config_disk": false,
+            "hda_disk_image": "windows 10-new.vmdk",
+            "hda_disk_image_md5sum": "35ed53dae2f2167d8b35daf785d8bdd5",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:46:74:35:00:00",
+            "on_close": "shutdown_signal",
+            "options": "-usbdevice tablet",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": ""
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/client.svg",
+        "template_id": "922159e1-86e5-49d1-81f1-ffa51a452188",
+        "width": 60,
+        "x": -396,
+        "y": -126,
+        "z": 1
+    },
+    {
+        "command_line": null,
+        "compute_id": "local",
+        "console": null,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "none",
+        "custom_adapters": [],
+        "first_port_name": null,
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "NAT1",
+            "x": 9,
+            "y": -24
+        },
+        "locked": false,
+        "name": "NAT1",
+        "node_directory": null,
+        "node_id": "043404a5-a975-4ad6-938b-864fb10a1078",
+        "node_type": "nat",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "name": "nat0",
+                "port_number": 0,
+                "short_name": "nat0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "ports_mapping": [
+                {
+                    "interface": "virbr0",
+                    "name": "nat0",
+                    "port_number": 0,
+                    "type": "ethernet"
+                }
+            ]
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/cloud.svg",
+        "template_id": "df8f4ea9-33b7-3e96-86a2-c39bc9bb649c",
+        "width": 60,
+        "x": -47,
+        "y": -355,
+        "z": 1
+    },
+    {
+        "command_line": "/usr/bin/qemu-system-x86_64 -name Router-1 -m 4096M -smp cpus=1,sockets=1 -enable-kvm -machine smm=off -boot order=c -cdrom /opt/gns3/images/QEMU/vyos-1.4-rolling-202205311706-amd64.iso -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/58c13806-5a6d-4290-9e0b-351726441964/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 58c13806-5a6d-4290-9e0b-351726441964 -serial telnet:127.0.0.1:5017,server,nowait -monitor tcp:127.0.0.1:40195,server,nowait -net none -device e1000,mac=0c:c1:38:06:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20177,localaddr=127.0.0.1:20176 -device e1000,mac=0c:c1:38:06:00:01,netdev=gns3-1 -netdev socket,id=gns3-1,udp=127.0.0.1:20179,localaddr=127.0.0.1:20178 -device e1000,mac=0c:c1:38:06:00:02,netdev=gns3-2 -netdev socket,id=gns3-2,udp=127.0.0.1:20181,localaddr=127.0.0.1:20180 -device e1000,mac=0c:c1:38:06:00:03,netdev=gns3-3 -netdev socket,id=gns3-3,udp=127.0.0.1:20183,localaddr=127.0.0.1:20182 -device e1000,mac=0c:c1:38:06:00:04,netdev=gns3-4 -netdev socket,id=gns3-4,udp=127.0.0.1:20185,localaddr=127.0.0.1:20184 -device e1000,mac=0c:c1:38:06:00:05,netdev=gns3-5 -netdev socket,id=gns3-5,udp=127.0.0.1:20187,localaddr=127.0.0.1:20186 -device e1000,mac=0c:c1:38:06:00:06,netdev=gns3-6 -netdev socket,id=gns3-6,udp=127.0.0.1:20189,localaddr=127.0.0.1:20188 -device e1000,mac=0c:c1:38:06:00:07,netdev=gns3-7 -netdev socket,id=gns3-7,udp=127.0.0.1:20191,localaddr=127.0.0.1:20190 -display none",
+        "compute_id": "local",
+        "console": 5021,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "telnet",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "Router-1",
+            "x": -3,
+            "y": -25
+        },
+        "locked": false,
+        "name": "Router-1",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/58c13806-5a6d-4290-9e0b-351726441964",
+        "node_id": "58c13806-5a6d-4290-9e0b-351726441964",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c1:38:06:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            },
+            {
+                "adapter_number": 1,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c1:38:06:00:01",
+                "name": "Ethernet1",
+                "port_number": 0,
+                "short_name": "e1"
+            },
+            {
+                "adapter_number": 2,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c1:38:06:00:02",
+                "name": "Ethernet2",
+                "port_number": 0,
+                "short_name": "e2"
+            },
+            {
+                "adapter_number": 3,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c1:38:06:00:03",
+                "name": "Ethernet3",
+                "port_number": 0,
+                "short_name": "e3"
+            },
+            {
+                "adapter_number": 4,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c1:38:06:00:04",
+                "name": "Ethernet4",
+                "port_number": 0,
+                "short_name": "e4"
+            },
+            {
+                "adapter_number": 5,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c1:38:06:00:05",
+                "name": "Ethernet5",
+                "port_number": 0,
+                "short_name": "e5"
+            },
+            {
+                "adapter_number": 6,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c1:38:06:00:06",
+                "name": "Ethernet6",
+                "port_number": 0,
+                "short_name": "e6"
+            },
+            {
+                "adapter_number": 7,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:c1:38:06:00:07",
+                "name": "Ethernet7",
+                "port_number": 0,
+                "short_name": "e7"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 8,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "vyos-1.4-rolling-202205311706-amd64.iso",
+            "cdrom_image_md5sum": "a95421a080f1711e42ebdac3a391b29b",
+            "cpu_throttling": 0,
+            "cpus": 1,
+            "create_config_disk": false,
+            "hda_disk_image": "VyOS 1.qcow2",
+            "hda_disk_image_md5sum": "126466559b26f143f4da2935641397b4",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:c1:38:06:00:00",
+            "on_close": "shutdown_signal",
+            "options": "",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/usr/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": "When this router is first cloned to a topology it will not recognize the interfaces on the device. To rectify this you must issue some commands after login. To login use the username vyos and the password P@ssw0rd. then issue the following commands\n\nconfigure\nload /opt/vyatta/etc/config.boot.default\ncommit\nsave\nexit\nreboot\n\n\nOnce the device reboots all interfaces will be visible. The login will be vyos and the password will be vyos."
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/router.svg",
+        "template_id": "3060ab68-57c6-46dc-b0f7-96e09b6fb5e0",
+        "width": 60,
+        "x": -49,
+        "y": -327,
+        "z": 0
+    },
+    {
+        "command_line": "/bin/qemu-system-x86_64 -name Test_Box_1 -m 4096M -smp cpus=2,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/5acba890-d4b3-4662-919e-57861cfd400d/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 5acba890-d4b3-4662-919e-57861cfd400d -vnc 0.0.0.0:6 -monitor tcp:127.0.0.1:35573,server,nowait -net none -device e1000,mac=0c:cb:a8:90:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20195,localaddr=127.0.0.1:20194",
+        "compute_id": "local",
+        "console": 5906,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "vnc",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "Test_Box_1",
+            "x": -8,
+            "y": 61
+        },
+        "locked": false,
+        "name": "Test_Box_1",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/5acba890-d4b3-4662-919e-57861cfd400d",
+        "node_id": "5acba890-d4b3-4662-919e-57861cfd400d",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:cb:a8:90:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 1,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 2,
+            "create_config_disk": false,
+            "hda_disk_image": "Ubuntu Server 20.qcow2",
+            "hda_disk_image_md5sum": "126466559b26f143f4da2935641397b4",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:cb:a8:90:00:00",
+            "on_close": "shutdown_signal",
+            "options": "",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": ""
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/client.svg",
+        "template_id": "3fd63c8d-7e90-4fd6-9a45-620b3eb77d65",
+        "width": 60,
+        "x": -344,
+        "y": 24,
+        "z": 1
+    },
+    {
+        "command_line": "/bin/qemu-system-x86_64 -name Test_Box_2 -m 4096M -smp cpus=2,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/9150a28a-cdce-4b30-9789-a9c02cfefd3f/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0 -uuid 9150a28a-cdce-4b30-9789-a9c02cfefd3f -vnc 0.0.0.0:7 -monitor tcp:127.0.0.1:40303,server,nowait -net none -device e1000,mac=0c:50:a2:8a:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:20197,localaddr=127.0.0.1:20196",
+        "compute_id": "local",
+        "console": 5907,
+        "console_auto_start": false,
+        "console_host": "0.0.0.0",
+        "console_type": "vnc",
+        "custom_adapters": [],
+        "first_port_name": "",
+        "height": 60,
+        "label": {
+            "rotation": 0,
+            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+            "text": "Test_Box_2",
+            "x": -10,
+            "y": 62
+        },
+        "locked": false,
+        "name": "Test_Box_2",
+        "node_directory": "/opt/gns3/projects/951755bc-f3ab-4d85-868a-04d824b83d4f/project-files/qemu/9150a28a-cdce-4b30-9789-a9c02cfefd3f",
+        "node_id": "9150a28a-cdce-4b30-9789-a9c02cfefd3f",
+        "node_type": "qemu",
+        "port_name_format": "Ethernet{0}",
+        "port_segment_size": 0,
+        "ports": [
+            {
+                "adapter_number": 0,
+                "adapter_type": "e1000",
+                "data_link_types": {
+                    "Ethernet": "DLT_EN10MB"
+                },
+                "link_type": "ethernet",
+                "mac_address": "0c:50:a2:8a:00:00",
+                "name": "Ethernet0",
+                "port_number": 0,
+                "short_name": "e0"
+            }
+        ],
+        "project_id": "951755bc-f3ab-4d85-868a-04d824b83d4f",
+        "properties": {
+            "adapter_type": "e1000",
+            "adapters": 1,
+            "bios_image": "",
+            "bios_image_md5sum": null,
+            "boot_priority": "c",
+            "cdrom_image": "",
+            "cdrom_image_md5sum": null,
+            "cpu_throttling": 0,
+            "cpus": 2,
+            "create_config_disk": false,
+            "hda_disk_image": "Ubuntu Server 20.qcow2",
+            "hda_disk_image_md5sum": "126466559b26f143f4da2935641397b4",
+            "hda_disk_interface": "ide",
+            "hdb_disk_image": "",
+            "hdb_disk_image_md5sum": null,
+            "hdb_disk_interface": "none",
+            "hdc_disk_image": "",
+            "hdc_disk_image_md5sum": null,
+            "hdc_disk_interface": "none",
+            "hdd_disk_image": "",
+            "hdd_disk_image_md5sum": null,
+            "hdd_disk_interface": "none",
+            "initrd": "",
+            "initrd_md5sum": null,
+            "kernel_command_line": "",
+            "kernel_image": "",
+            "kernel_image_md5sum": null,
+            "legacy_networking": false,
+            "linked_clone": true,
+            "mac_address": "0c:50:a2:8a:00:00",
+            "on_close": "shutdown_signal",
+            "options": "",
+            "platform": "x86_64",
+            "process_priority": "normal",
+            "qemu_path": "/bin/qemu-system-x86_64",
+            "ram": 4096,
+            "replicate_network_connection_state": true,
+            "usage": ""
+        },
+        "status": "started",
+        "symbol": ":/symbols/affinity/circle/blue/client.svg",
+        "template_id": "3fd63c8d-7e90-4fd6-9a45-620b3eb77d65",
+        "width": 60,
+        "x": -76,
+        "y": 116,
+        "z": 1
+    }
+]

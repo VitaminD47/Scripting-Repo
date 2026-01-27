@@ -1,0 +1,27 @@
+import json
+
+# The following script opens a specific json file, loads it (reads it), parses it for device specific information then writes it to a file.
+# You can modify the file paths and name if needed, but it is specific to GNS3 .json files
+
+## update file path as needed
+with open(r'010396198_d417_1\gns3nodes.json') as f:
+    data = json.load(f)
+
+## update file path as needed
+try:
+    with open(r'C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\switch_inventory.txt', "x") as f:
+        for node in data[0:5]:
+            props = node["properties"]
+            line = (f"Switch name: {node["name"]}\nRAM: {props["ram"]}\nCPU count: {props["cpus"]}\nQEMU binary path: {props["qemu_path"]}\nBoot priority: {props["boot_priority"]}\nOn Close: {props["on_close"]}\nConsole Type: {node["console_type"]}\nAdapters: {props["adapters"]}\nBase MAC: {props["mac_address"]}\nAdapter Type: {props["adapter_type"]}\nReplicate Network Connection states in QEMU: {props["replicate_network_connection_state"]}\n\n")
+            print(line)
+            f.write(line)
+    
+        print('Write to file completed.')
+except FileExistsError:
+        print('Inventory file already exists. File creation cancelled.')
+
+
+
+
+
+

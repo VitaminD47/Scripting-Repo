@@ -1,0 +1,10 @@
+---
+ - name: Create exos user accounts
+   hosts: exos
+   gather_facts: false
+  
+   tasks:
+    - name: Create exos Local-Admin accounts 
+      exos_config: 
+        lines: create account admin Local-Admin WGU123
+        save_when: always

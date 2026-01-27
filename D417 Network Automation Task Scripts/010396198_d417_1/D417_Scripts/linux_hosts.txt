@@ -1,0 +1,7 @@
+linux:
+  hosts:
+    10.10.1.50:
+    10.10.1.60:
+  vars:
+    ansible_user: student
+    ansible_password: P@ssw0rd

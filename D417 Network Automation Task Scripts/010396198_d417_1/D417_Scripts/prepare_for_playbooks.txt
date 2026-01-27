@@ -1,0 +1,66 @@
+from netmiko import ConnectHandler
+
+devices = [ 
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.5',
+        'username':'admin',
+        'password': '',
+    }, 
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.6',
+        'username':'admin',
+        'password': '',
+    },
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.7',
+        'username':'admin',
+        'password': '',
+    },
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.8',
+        'username':'admin',
+        'password': '',
+    },
+    {
+        'device_type': 'extreme_exos',
+        'host': '10.10.1.24',
+        'username':'admin',
+        'password': '',
+    }]
+
+# Due to a configuration saving issue with EXOS and other lab routing related issues,
+# the following commands are used to prepare the switches for playbook execution so the ansible node can talk to them.
+# This sets all host devices to be in the Default VLAN and enables IP forwarding.
+# Some code is reused from configure_vlans_access1.py.
+
+
+commands = ['disable cli paging', 'enable ipforwarding vlan Default']
+untagged_user = ["configure vlan Default add ports 2-5 untagged"]
+untagged_others = ["configure vlan Default add ports 2 untagged"]
+
+for device in devices:
+    print(f'Connecting to {device}...')
+    try:
+        connect_to_devices = ConnectHandler(**device)
+        output = connect_to_devices.send_config_set(commands, read_timeout=60)
+        print(output)
+        if device['host'] == '10.10.1.8':
+            port_config_user = connect_to_devices.send_config_set(untagged_user)
+            print(port_config_user)
+        else:
+            port_config_others = connect_to_devices.send_config_set(untagged_others)
+            print(port_config_others)
+        
+    # Save the configuration
+        write_mem = connect_to_devices.send_command_timing("save configuration")
+        print(write_mem)
+        if "do you want to save" in write_mem.lower():
+            confirmation = connect_to_devices.send_command_timing("yes")
+            print(confirmation)
+
+    except Exception as e:
+        print(f"FAILED {device['host']}: {e}")  

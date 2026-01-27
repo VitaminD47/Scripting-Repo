@@ -1,0 +1,4 @@
+string_looper_ip = "192.168.1.1", "192.168.2.1", "192.168.3.1"
+for i in string_looper_ip:
+  print(i)
+

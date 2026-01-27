@@ -1,0 +1,2 @@
+Hello, Python!
+This file was created using the with statement.

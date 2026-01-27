@@ -1,5 +1,0 @@
-Rule ID,Source IP,Destination IP,Protocol,Action
-1,192.168.1.100,192.168.1.200,TCP,Allow
-2,192.168.2.0/24,Any,UDP,Deny
-3,Any,192.168.3.0/24,ICMP,Allow
-4,10.0.0.0/8,192.168.1.0/24,TCP,Allow

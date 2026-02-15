@@ -2,9 +2,10 @@
 
 
 ## Name
-Network Automation Scripts for network automation class
+Network Automation Scripts (vyOS nodes)
 
 ## Description
-The python scripts contained in this directory are original and were used for an automation class in my degree program.
+The Python and Ansible scripts/playbooks contained in this directory are original and were used for an automation class in my degree program.
+
 
 

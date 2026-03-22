@@ -1,0 +1,12 @@
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+l-r--           9/25/2025  5:24 PM                D417 Network Automation Task Scripts
+l-r--          10/10/2025  3:07 AM                Netmiko
+l-r--           3/11/2026 11:44 AM                Script-Repo
+lar--           11/6/2025  4:43 PM                USCG Config (do not update or use)
+-a---           3/22/2026  1:11 PM              0 Directorylist.txt
+la---           3/22/2026 12:57 PM       51955645 reference_test.xml
+

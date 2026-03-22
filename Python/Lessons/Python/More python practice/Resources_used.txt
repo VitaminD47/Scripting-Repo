@@ -1,0 +1,3 @@
+The files in this folder pertain to the book "Introduction to Python Network Automation" by Brendan Choi.
+The book was provided via the Network Automation class from WGU.
+The exercises and files within this directory pertain to Python specifically.

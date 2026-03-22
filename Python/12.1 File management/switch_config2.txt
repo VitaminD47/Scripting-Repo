@@ -1,1 +1,0 @@
-no switchport port-security

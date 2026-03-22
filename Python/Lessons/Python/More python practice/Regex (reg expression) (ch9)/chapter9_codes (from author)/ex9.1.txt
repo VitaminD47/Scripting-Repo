@@ -1,0 +1,28 @@
+sw_mac = '''pynetauto-sw01 84:3d:c6:05:09:11
+pynetauto-sw17 80:7f:f8:80:71:1b
+pynetauto-sw05 f0:62:81:5a:53:cd'''
+
+sw_mac = sw_mac.replace(":", "").upper()
+
+list1 = sw_mac.split(" ")
+
+list2 = []
+for i in list1:
+    list2.append(i.strip())
+
+sw_list = []
+mac_list = []
+for i in list2:
+    if len(i) == 14:
+        sw_list.append(i)
+    if len(i) == 12:
+        i = i[:6] + "******"
+        mac_list.append(i)
+
+sw_mac_dict = dict(zip(sw_list, mac_list))
+for k,v in sw_mac_dict.items():
+    print(k, v)
+
+# PYNETAUTO-SW01 843DC6******
+# PYNETAUTO-SW17 807FF8******
+# PYNETAUTO-SW05 F06281******

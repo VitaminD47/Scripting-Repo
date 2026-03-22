@@ -1,0 +1,72 @@
+Host name: WindowsDesktop-1
+RAM: 4096
+CPU count: 2
+QEMU binary path: /bin/qemu-system-x86_64
+Boot priority: c
+On Close: shutdown_signal
+Console Type: vnc
+Adapters: 1
+Base MAC: 0c:4b:3c:0a:00:00
+Adapter Type: e1000
+Replicate Network Connection states in QEMU: True
+
+Host name: WindowsDesktop-2
+RAM: 4096
+CPU count: 2
+QEMU binary path: /bin/qemu-system-x86_64
+Boot priority: c
+On Close: shutdown_signal
+Console Type: vnc
+Adapters: 1
+Base MAC: 0c:59:fd:86:00:00
+Adapter Type: e1000
+Replicate Network Connection states in QEMU: True
+
+Host name: WindowsDesktop-3
+RAM: 4096
+CPU count: 2
+QEMU binary path: /bin/qemu-system-x86_64
+Boot priority: c
+On Close: shutdown_signal
+Console Type: vnc
+Adapters: 1
+Base MAC: 0c:e2:07:f3:00:00
+Adapter Type: e1000
+Replicate Network Connection states in QEMU: True
+
+Host name: WindowsDesktop-4
+RAM: 4096
+CPU count: 2
+QEMU binary path: /bin/qemu-system-x86_64
+Boot priority: c
+On Close: shutdown_signal
+Console Type: vnc
+Adapters: 1
+Base MAC: 0c:46:74:35:00:00
+Adapter Type: e1000
+Replicate Network Connection states in QEMU: True
+
+Host name: Test_Box_1
+RAM: 4096
+CPU count: 2
+QEMU binary path: /bin/qemu-system-x86_64
+Boot priority: c
+On Close: shutdown_signal
+Console Type: vnc
+Adapters: 1
+Base MAC: 0c:cb:a8:90:00:00
+Adapter Type: e1000
+Replicate Network Connection states in QEMU: True
+
+Host name: Test_Box_2
+RAM: 4096
+CPU count: 2
+QEMU binary path: /bin/qemu-system-x86_64
+Boot priority: c
+On Close: shutdown_signal
+Console Type: vnc
+Adapters: 1
+Base MAC: 0c:50:a2:8a:00:00
+Adapter Type: e1000
+Replicate Network Connection states in QEMU: True
+

@@ -1,0 +1,879 @@
+--------------------------------------------------------------------------------
+9.3 Regex Operation – The Basics
+--------------------------------------------------------------------------------
+Ex1 – matching metacharacter ^ and \ using square bracket ([ ])
+>>> import re
+>>> expr = " . ^ $ * + ? \ | ( ) [ ] { }"
+>>> re.search(r'[\^]', expr)
+<re.Match object; span=(3, 4), match='^'>
+>>> re.search(r'[\\]', expr)
+<re.Match object; span=(13, 14), match='\\'>
+
+Ex2 – meaning of [^a]
+>>> import re
+>>> re.findall('[^a]', 'abracadabra')
+['b', 'r', 'c', 'd', 'b', 'r']
+
+Ex3 – meaning of [\]]
+>>> re.search(r'[\\]', 'match \ or ]')
+<re.Match object; span=(6, 7), match='\\'>
+>>> re.search(r'[\]]', 'match \ or ]')
+<re.Match object; span=(11, 12), match=']'>
+
+
+--------------------------------------------------------------------------------
+9.4 Python re module
+--------------------------------------------------------------------------------
+Style	Example
+Simple	import re
+
+m = re.findall(‘\dx\d{4}’, “Configuration register is 0x2102”)
+print(m)
+
+Standard	import re
+
+expr = “Configuration register is 0x2102”
+m = re.findall(‘\dx\d{4}’, expr)
+print(m)
+
+Compiler	import re
+
+expr = “Configuration register is 0x2102”    <<<expr for expression
+p = re.compile(‘\dx\d{4}’)                   <<< p for pattern
+m = p.findall(expr)                          <<< m for match
+print(m)
+
+Result	['0x2102']
+
+--------------------------------------------------------------------------------
+9.4.1.1 re.match()
+--------------------------------------------------------------------------------
+Ex1 - re.match()
+>>> import re
+>>> re.match(r'\d\w\d{4}', '0x2142 Configuration register is 0x2102')
+<re.Match object; span=(0, 6), match='0x2142'>
+
+Ex2 - re.match()
+>>> import re
+>>> expr = '0x2142 Configuration register is 0x2102'
+>>> re.match(r'\d\w\d{4}', expr)
+<re.Match object; span=(0, 6), match='0x2142'>
+
+Ex3 - re.match()
+>>> import re
+>>> expr = '0x2142 Configuration register is 0x2102' 
+>>> p = re.compile(r'\d\w\d{4}') 
+>>> m = p.match(expr) 
+>>> print(m)
+<re.Match object; span=(0, 6), match='0x2142'>
+
+Ex4 - re.match()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "five regular expression"
+>>> m = p.match(expr)
+>>> print(m)
+<re.Match object; span=(0, 4), match='five'>
+
+Ex5 - re.match()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "5 regular expression"
+>>> m = p.match(expr)
+>>> print(m)
+Result: None
+
+--------------------------------------------------------------------------------
+9.4.1.2 re.search()
+--------------------------------------------------------------------------------
+Ex1 - re.search()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "five regular expression"
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(0, 4), match='five'
+
+Ex2 - re.search()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "5 regular expression"
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(2, 9), match='regular'>
+
+--------------------------------------------------------------------------------
+9.4.1.3 re.findall()
+--------------------------------------------------------------------------------
+Ex1 - re.findall()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "five regular expression"
+>>> m = p.findall(expr)
+>>> print(m)
+['five', 'regular', 'expression']
+
+Ex2 - re.findall()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "5 regular expression"
+>>> m = p.findall(expr)
+>>> print(m)
+['regular', 'expression']
+
+--------------------------------------------------------------------------------
+9.4.1.4 re.finditer()
+--------------------------------------------------------------------------------
+Ex1 - re.finditer()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "five regular expression"
+>>> m = p.finditer(expr)
+>>> print(m)
+<callable_iterator object at 0x000001E581F1B5E0>
+>>> for r in m:
+...     print(r)
+...
+<re.Match object; span=(0, 4), match='five'>
+<re.Match object; span=(5, 12), match='regular'>
+<re.Match object; span=(13, 23), match='expression'>
+
+Ex2 - re.finditer()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "5 regular expression"
+>>> m = p.finditer(expr)
+>>> print(m)
+<callable_iterator object at 0x000001E581F1B5E0>
+>>> for r in m: print(r)
+...
+<re.Match object; span=(2, 9), match='regular'>
+<re.Match object; span=(10, 20), match='expression'>
+
+--------------------------------------------------------------------------------
+9.4.2 match object method
+--------------------------------------------------------------------------------
+Ex1 - re.match()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "automation"
+>>> m = p.match(expr)
+>>> print(m)
+<re.Match object; span=(0, 10), match='automation'>
+>>> m.group()
+'automation'
+>>> m.start()
+0
+>>> m.end()
+10
+>>> m.span()
+(0, 10)	
+
+Ex2 - re.search()
+>>> import re
+>>> p = re.compile('[a-z]+')
+>>> expr = "5. regular expression"
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(3, 10), match='regular'>
+>>> m.group
+<built-in method group of re.Match object at 0x000001E581F00C00>
+>>> m.group()
+'regular'
+>>> m.start
+<built-in method start of re.Match object at 0x000001E581F00C00>
+>>> m.start()
+3
+>>> m.end
+<built-in method end of re.Match object at 0x000001E581F00C00>
+>>> m.end()
+10
+>>> m.span
+<built-in method span of re.Match object at 0x000001E581F00C00>
+>>> m.span()
+(3, 10)
+
+--------------------------------------------------------------------------------
+9.5.1 re.DOTALL (re.S)
+--------------------------------------------------------------------------------
+Ex1 – without re.DOTALL()
+>>> import re
+>>> expr = 'a\nb'
+>>> p = re.compile('a.b')
+>>> m = p.match(expr)
+>>> print(m)
+None                                  <<< No match found due to newline
+
+
+Ex2 – re. DOTALL()
+>>> import re
+>>> expr = 'a\nb'
+>>> p = re.compile('a.b', re.DOTALL)
+>>> m = p.match(expr)
+>>> print(m)
+<re.Match object; span=(0, 3), match='a\nb'>  <<< Matches object
+
+--------------------------------------------------------------------------------
+9.5.2 re.IGNORECASE (re.I)
+--------------------------------------------------------------------------------
+Ex1 - re.IGNORECASE()
+>>> import re
+>>> expr1 = 'automation'
+>>> expr2 = 'Automation'
+>>> expr3 = 'AUTOMATION'
+>>> p = re.compile('[a-z]+', re.IGNORECASE)
+>>> m1 = p.match(expr1)
+>>> print(m1)
+<re.Match object; span=(0, 10), match='automation'>
+>>> m2 = p.match(expr2)
+>>> print(m2)
+<re.Match object; span=(0, 10), match='Automation'>
+>>> m3 = p.match(expr3)
+>>> print(m3)
+<re.Match object; span=(0, 10), match='AUTOMATION'>
+
+--------------------------------------------------------------------------------
+9.5.3 re.MULTILINE (re.M)
+--------------------------------------------------------------------------------
+Ex1 – without re.MULTILINE()
+>>> import re
+>>> expr = '''Regular Engineers
+... Regular Network Engineers
+... Regular but not so regular Engineers'''
+>>> p = re.compile('^R\w+\S')
+>>> m = p.findall(expr)
+>>> print(m)
+['Regular']
+
+Ex2 - ^ and re.MULTILINE()
+>>> import re
+>>> expr = '''Regular Engineers
+... Regular Network Engineers
+... Regular but not so Regular Engineers'''
+>>> p = re.compile('^R\w+\S', re.MULTILINE)
+>>> m = p.findall(expr)
+>>> print(m)
+['Regular', 'Regular', 'Regular']
+
+--------------------------------------------------------------------------------
+9.5.4 re.VERBOSE (re.X)
+--------------------------------------------------------------------------------
+# Example1 – without re.VERBOSE
+import re
+
+expr = 'I was born in 2,009 and I am 15 years old. I started my primary school in 2,010'
+p = re.compile(r'[1-9](?:\d{0,2})(?:,\d{3})*(?:\.\d*[1-9])?|0?\.\d*[1-9]|0')
+
+m = p.findall(expr)
+
+print(m)
+
+
+
+# Example2 – with re.VERBOSE
+import re
+
+expr = 'I was born in 2,009 and I am 15 years old. I started my primary school in 2,010'
+p = re.compile(r"""
+[1-9]           # Match a single digit between 1-9
+(?:\d{0,2})     # Match digit equatl to [0-9] between 0 and 2 times
+(?:,\d{3})*     # Match the character ,(Comma) literally, match a digit equal to [0-9] \
+                  exactly 3 times) Zero and unlimited times
+(?:\.\d*[1-9])? # Match the character. (Dot) literally, match a digit equal to [0-9] \
+                   zero and unlimited times, match a single digit between [1-9]) \
+                   zero and one time.
+|               # OR
+0?\.\d*[1-9]    # Match 0 zero or one time, match . (Dot) literally, match a digit \ 
+                   equal to [0-9] zero or unlimited times, and match a digit between [1-9]
+|               # OR
+0               # Match one 0
+""", re.VERBOSE)
+
+m = p.findall(expr)
+
+print(m)
+
+Result:  ['2,009', '15', '2,010']
+
+--------------------------------------------------------------------------------
+9.6 \ - confusing backslash character
+--------------------------------------------------------------------------------
+Ex1 - backslashes without raw string notation
+>>> import re
+>>> expr = 'Our team \scored three goals\\'
+>>> p1 = re.compile('\scored')
+>>> p2 = re.compile('\\scored')
+>>> p3 = re.compile('\\\scored')
+>>> p4 = re.compile('\\\\scored')
+>>> p5 = re.compile('\\\\\scored')
+>>> print(p1.findall(expr))
+[]
+>>> print(p2.findall(expr))
+[]
+>>> print(p3.findall(expr))
+['\\scored']
+>>> print(p4.findall(expr))
+['\\scored']
+>>> print(p5.findall(expr))
+[]	
+
+Ex2 – backslash with raw string notation
+>>> import re
+>>> expr = 'Our team \scored three goals\\'
+>>> p1 = re.compile(r'\scored')
+>>> p2 = re.compile(r'\\scored')
+>>> p3 = re.compile(r'\\\scored')
+>>> p4 = re.compile(r'\\\\scored')
+>>> print(p1.findall(expr))
+[]
+>>> print(p2.findall(expr))
+['\\scored']
+>>> print(p3.findall(expr))
+[]
+>>> print(p4.findall(expr))
+[]
+
+Ex3 – backslash with raw string notation
+>>> import re
+>>> expr = 'Our team \scored three goals\\'
+>>> p2 = re.compile(r'\\scored')
+>>> m = p2.findall(expr)
+>>> print(m)
+['\\scored']
+>>> n = m[0]
+>>> n
+'\\scored'
+>>> for x in n:
+...     print(x, end=")
+...
+\scored
+
+
+--------------------------------------------------------------------------------
+9.7.1.1 | (OR Operator)
+--------------------------------------------------------------------------------
+Ex1 - a[bc]
+>>> import re
+>>> re.findall('a[bc]', 'a, ab, ac, abc, acb, ad')
+['ab', 'ac', 'ab', 'ac']
+
+Ex2 - a(b|c)
+>>> re.findall('a(b|c)', 'a, ab, ac, abc, acb, ad')
+['b', 'c', 'b', 'c']
+
+Ex3 - 3[a-f]
+>>> re.findall('3[a-f]', '3, 3a, 3c, 3f, 3g')
+['3a', '3c', '3f']
+
+Ex4 - 3(a|b|c|d|e|f)
+>>> re.findall('3(a|b|c|d|e|f)', '3, 3a, 3c, 3f, 3g')
+['a', 'c', 'f']
+
+Ex5 - apple|rasberry
+>>> re.match('apple|raspberry', 'raspberry pie')
+<re.Match object; span=(0, 8), match='rasberry'>
+
+Ex6 - apple|rasberry
+>>> print(re.findall('apple|raspberry', 'raspberry and apple pie'))
+['rasberry', 'apple']
+
+--------------------------------------------------------------------------------
+9.7.1.2 ^ and $ (Anchors)
+--------------------------------------------------------------------------------
+Ex1 - ^Start
+>>> re.findall('^Start', 'Start to finish')
+['Start']
+
+Ex2 - finish$
+>>> re.findall('finish$', 'Start to finish')
+['finish']
+
+Ex3 - ^S.+sh$
+>>> re.findall('^S.+sh$', 'Start to finish')
+['Start to finish']
+
+Ex4 - ^S.+sh$' and re.M
+>>> re.findall('^S.+sh$', 'Start to finish\nSpecial fish\nSuper fresh', re.MULTILINE)
+['Start to finish', 'Special fish', 'Super fresh']
+
+Ex5 - ^Gig.+up$ and re.M
+>>> import re
+
+>>> expr = '''SYDCBDPIT-ST01#sh ip int brief
+... Interface              IP-Address      OK? Method Status                Protocol
+... Vlan1                  unassigned      YES NVRAM  up                    up
+... Vlan50                 10.50.50.11    YES NVRAM  up                    up
+... FastEthernet0          unassigned      YES NVRAM  down                  down
+... GigabitEthernet1/0/1   unassigned      YES unset  down                  down
+... GigabitEthernet1/0/2   unassigned      YES unset  up                    up
+... GigabitEthernet1/0/3   unassigned      YES unset  up                    up
+... '''
+
+>>> p = re.compile('^Gig.+down$', re.MULTILINE)
+>>> m = p.findall(expr)
+>>> print(m)
+['GigabitEthernet1/0/1   unassigned      YES unset  down                  down'] 
+
+--------------------------------------------------------------------------------
+9.7.1.3 \A and \Z
+--------------------------------------------------------------------------------
+Ex1a - ^S.+sh
+>>> re.findall('^S.+sh', 'Start to finish')
+['Start to finish']
+
+Ex1b - \AS.+sh
+>>> re.findall('\AS.+sh', 'Start to finish')
+['Start to finish']
+
+Ex2a - ^S.+sh with re.MULTILINE
+>>> re.findall('^S.+sh', 'Start to finish\nSuper special fish\nSuper fresh fish\nSuper smelly fish', re.M)
+['Start to finish', 'Super special fish', 'Super fresh fish', 'Super smelly fish']
+
+Ex2b – \AS.+sh with re.MULTILINE
+>>> re.findall('\AS.+sh', 'Start to finish\nSuper special fish\nSuper fresh fish\nSuper smelly fish', re.M)
+['Start to finish']
+
+Ex3a - S.+sh$ with re.MULTILINE
+>> re.findall('S.+sh$', 'Start to finish\nSuper special fish\nSuper fresh fish\nSuper smelly fish', re.M)
+['Start to finish', 'Super special fish', 'Super fresh fish', 'Super smelly fish']
+
+Ex3b - S.+sh\Z with re.MULTILINE
+>>> re.findall('S.+sh\Z', 'Start to finish\nSuper special fish\nSuper fresh fish\nSuper smelly fish', re.M)
+['Super smelly fish']
+
+Ex4a - ^S.+sh$ with re.M
+>>> re.findall('^S.+sh$', 'Start to finish\nSuper special fish\nSuper fresh fish\nSuper smelly fish', re.M)
+['Start to finish', 'Super special fish', 'Super fresh fish', 'Super smelly fish']
+
+Ex4b - \AS.+sh$ with re.M
+>>> re.findall('\AS.+sh$', 'Start to finish\nSuper special fish\nSuper fresh fish\nSuper smelly fish', re.M)
+['Start to finish']
+
+Ex4c - ^S.+sh\Z with re.M
+>>> re.findall('^S.+sh\Z', 'Start to finish\nSuper special fish\nSuper fresh fish\nSuper smelly fish', re.M)
+['Super smelly fish']
+
+Ex4d - \AS.+sh\Z with re.M
+>>> re.findall('\AS.+sh\Z', 'Start to finish\nSuper special fish\nSuper fresh fish\nSuper smelly fish', re.M)
+[]
+
+--------------------------------------------------------------------------------
+9.7.1.4 \b and \B
+--------------------------------------------------------------------------------
+Ex1 - \b(word)\b matched
+>>> import re
+>>> expr = "Small computers include smartphones."
+>>> p = re.compile(r'\bcomputers\b')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(6, 15
+
+Ex2 - \b(word)\b not match
+>>> import re
+>>> expr = "Microcomputers include smartphones."
+>>> p = re.compile(r'\bcomputers\b')
+>>> m = p.search(expr)
+>>> print(m)
+None
+
+Ex3 - (word)\b matched
+>>> import re
+>>> expr = "Microcomputers include smartphones."
+>>> p = re.compile(r'computers\b')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(5, 14), match='computers'>
+
+Ex4 - \B(word)\B matched
+>>> import re
+>>> expr = "Microcomputers include smartphones."
+>>> p = re.compile(r'\Bcomputer\B')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(5, 13), match='computer'>
+
+--------------------------------------------------------------------------------
+9.7.1.5 Grouping
+--------------------------------------------------------------------------------
+Ex1. 
+>>> import re
+>>> expr = "downupupupdowndownupdowndown"
+>>> p = re.compile("(up)+")
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(4, 10), match='upupup'>
+>>> print(m.group(0))
+upupup
+
+Ex2. 
+>>> import re
+>>> expr = "United States 1 408 526 1234"
+>>> p = re.compile(r"\w+\s\w+\s\d\s\d{3}\s\d{3}\s\d+")
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match obj
+
+Ex3. 
+>>> import re
+>>> expr = "United States 1 408 526 1234"
+>>> p = re.compile(r"(\w+\s\w+)\s\d?\s\d{3}\s\d{3}\s\d+")
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(0, 28), match='United States 1 408 526 1234'>
+>>> country = m.group(1)
+>>> country
+'United States'
+
+Ex4. 
+>>> import re
+>>> expr = "United States 1 408 526 1234"
+>>> p = re.compile(r"(\w+\s\w+)\s(\d?\s\d{3}\s\d{3}\s\d+)")
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(0, 28), match='United States 1 408 526 1234'>
+>>> phone_number = m.group(2)
+>>> phone_number
+'1 408 526 1234'
+
+Ex5. 
+>>> import re
+>>> expr = "United States 1 408 526 1234"
+>>> p = re.compile(r"(\w+\s\w+)\s((\d?)\s(\d{3})\s(\d{3}\s\d+))")
+>>> m = p.search(expr)
+>> m.group(0)
+'United States 1 408 526 1234'
+>>> m.group(1)
+'United States'
+>>> m.group(2)
+'1 408 526 1234'
+>>> m.group(3)
+'1'
+>>> m.group(4)
+'408'
+>>> m.group(5)
+'526 1234'
+
+Ex6. Referencing grouped string
+>>> import re
+>>> expr = "Did you know that that 'that', that that person used in that sentence, is wrong."
+>>> p = re.compile(r'(\bthat)\s+\1')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(13, 22), match='that that'>
+>>> m = p.search(expr).group()
+>>> print(m)
+that that
+
+--------------------------------------------------------------------------------
+9.7.1.6 Regular expression Named groups:
+--------------------------------------------------------------------------------
+expr = "SYD-GW1 uptime is 1 year, 9 weeks, 2 days, 5 hours, 26 minutes"
+
+(\w+[-]\w+)\s.+((\d+\sy\w+),\s(\d+\sw\w+),\s(\d+\sd\w+),\s(\d+\sh\w+),\s(\d+\sm\w+))
+
+Ex1
+>>> import re
+>>> expr = "SYD-GW1 uptime is 1 year, 9 weeks, 2 days, 5 hours, 26 minutes"
+>>> p = re.compile(r'(\w+[-]\w+)\s.+((\d+\sy\w+),\s(\d+\sw\w+),\s(\d+\sd\w+),\s(\d+\sh\w+),\s(\d+\sm\w+))')
+>>> m = p.search(expr)
+>>> print(m.group(0))
+SYD-GW1 uptime is 1 year, 9 weeks, 2 days, 5 hours, 26 minutes
+>>> print(m.group(1))
+SYD-GW1
+>>> print(m.group(2))
+1 year, 9 weeks, 2 days, 5 hours, 26 minutes
+>>> print(m.group(3))
+1 year
+[… omitted for brevity]
+>>> print(m.group(7))
+26 minutes
+
+Ex2
+>>> import re
+>>> expr = "SYD-GW1 uptime is 1 year, 9 weeks, 2 days, 5 hours, 26 minutes"
+>>> p_named = re.compile(r'(?P<hostname>\w+[-]\w+)\s.+(?P<uptime>(?P<years>\d+\sy\w+),\s(?P<weeks>\d+\sw\w+),\s(?P<days>\d+\sd\w+),\s(?P<hours>\d+\sh\w+),\s(?P<minutes>\d+\sm\w+))')
+>>> m = p_named.search(expr)
+>>> print(m.group("minutes"))
+26 minutes
+[… omitted for brevity]
+>>> print(m.group("uptime"))
+1 year, 9 weeks, 2 days, 5 hours, 26 minutes
+>>> print(m.group("hostname"))
+SYD-GW1
+
+--------------------------------------------------------------------------------
+9.8.1 Lookahead, lookbehind and non-capturing group
+--------------------------------------------------------------------------------
+Ex #	Exercises
+1	>>> print(re.search('a(?=b)', 'abc'))
+<re.Match object; span=(0, 1), match='a'>
+
+>>> print(re.search('a(?=b)', 'xbc'))
+None
+
+2	>>> print(re.search('a(?!b)', 'abc'))
+None
+
+>>> print(re.search('a(?!b)', 'acd'))
+<re.Match object; span=(0, 1), match='a'>
+
+3	>>> print(re.search('(?<=a)b', 'abc'))
+<re.Match object; span=(1, 2), match='b'>
+
+>>> print(re.search('(?<=a)b', 'xbc'))
+None
+
+4	>>> print(re.search('(?<!a)b', 'abc'))
+None
+
+>>> print(re.search('(?<!a)b', 'xbc'))
+<re.Match object; span=(1, 2), match='b'>
+
+5	>>> print(re.search('a(?:b)', 'abc'))
+<re.Match object; span=(0, 2), match='ab'>
+
+>>> print(re.search('a(?=b)', 'abc'))
+<re.Match object; span=(0, 1), match='a'>
+
+6	>>> import re
+>>> expr = "+1 408 526 1234"
+>>> p = re.compile(r"((?:(\+1)[ -])?\(?(\d{3})\)?[ -]?\d{3}[ -]?\d{4})")
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(0, 15), match='+1 408 526 1234'>
+>>> print(m.group(2))
++1
+
+--------------------------------------------------------------------------------
+9.8.2 Practice more Lookarounds
+--------------------------------------------------------------------------------
+Ex. #	Exercise
+1	>>> import re
+>>> expr = 'abba'
+>>> p = re.compile('a(?=b)')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(0, 1), match='a'>
+
+2	>>> import re
+>>> expr = 'abba'
+>>> p = re.compile('b(?=b)')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(1, 2), match='b'>
+
+3	>>> import re
+>>> expr = 'abba'
+>>> p = re.compile('a(?!b)')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(3, 4), match='a'>
+
+4	>>> import re
+>>> expr = 'abba'
+>>> p = re.compile('b(?!b)')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(2, 3), match='b'>
+
+5	>>> import re
+>>> expr = 'abba'
+>>> p = re.compile('(?<=a)b')
+>>> print(m)
+<re.Match object; span=(1, 2), match='b'>
+
+6	>>> import re
+>>> expr = 'abba'
+>>> p = re.compile('(?<=b)b')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(2, 3), match='b'>
+
+7	>>> import re
+>>> expr = 'abba'
+>>> p = re.compile('(?<!a)b')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(2, 3), match='b'>
+
+8	>>> import re
+>>> expr = 'abba'
+>>> p = re.compile('(?<!b)b')
+>>> m = p.search(expr)
+>>> print(m)
+<re.Match object; span=(1, 2), match='b'>
+
+9	>>> import re
+>>> expr = 'abc'
+>>> p1 = re.compile('a(?:b)')
+>>> m1 = p1.search(expr)
+>>> print(m1)
+<re.Match object; span=(0, 2), match='ab'>
+
+10	>>> p2 = re.compile('a(?=b)')
+>>> m2 = p2.search(expr)
+>>> print(m2)
+<re.Match object; span=(0, 1), match='a'>
+
+--------------------------------------------------------------------------------
+9.8.3 Lookaround application examples
+--------------------------------------------------------------------------------
+Ex1 - Only use lookahed method to print ‘http’.
+>>> import re
+>>> m = (re.search(r"\w{4,5}(?=:)", "http://www.cisco.com/techsupport"))
+>>> print(m.group())
+http
+
+Ex2 - Only use lookahed and lookbehind method to print ‘www.cisco.com’.
+>>> import re
+>>> m = (re.search(r"(?<=\/)\w.+[.]\w+[.]\w+(?=/)", "http://www.cisco.com/techsupport"))
+>>> print(m.group())
+www.cisco.com
+
+.*[.].*$
+
+Ex3- match all file types using regular expression - .*[.].*$
+>>> import re
+>>> expr = "vlan.dat\nsw1.bak\nconfig.text\npynetauto.dat\nsw1_old.bak\n2960x-universalk9-mz.152-2.E6.bin"
+>>> m = re.findall(".*[.].*$", expr, re.M)
+>>> m
+['vlan.dat', 'sw1.bak', 'config.text', 'pynetauto.dat', 'sw1_old.bak', '2960x-universalk9-mz.152-2.E6.bin']
+In the exercise 3, you will be using regular expression  .*[.].*$ to match all files in expr.
+
+Ex4- filter any file names ending with d.. without using lookaround method
+>>> import re
+>>> expr = "vlan.dat\nsw1.bak\nconfig.text\npynetauto.dat\nsw1_old.bak\n2960x-universalk9-mz.152-2.E6.bin"
+>>> m = re.findall(r".*[.][^d].*$", expr, re.M)
+>>> m
+['sw1.bak', 'config.text', 'sw1_old.bak', '2960x-universalk9-mz.152-2.E6.bin']
+
+Ex5- filter any file names ending with d.. using lookaround method
+>>> import re
+>>> expr = "vlan.dat\nsw1.bak\nconfig.text\npynetauto.dat\nsw1_old.bak\n2960x-universalk9-mz.152-2.E6.bin"
+>>> m = re.findall(r".*[.](?!dat$).*$", expr, re.M)
+>>> m
+['sw1.bak', 'config.text', 'sw1_old.bak', '2960x-universalk9-mz.152-2.E6.bin']
+
+Ex6 - filter any files ending with .dat and .bak without using lookaround method
+>>> import re
+>>> expr = "vlan.dat\nsw1.bak\nconfig.text\npynetauto.dat\nsw1_old.bak\n2960x-universalk9-mz.152-2.E6.bin"
+>>> m = re.findall(r".*[.][^d|^b].*$", expr, re.M)
+>>> m
+['config.text', '2960x-universalk9-mz.152-2.E6.bin']
+
+Ex7 - filter any files ending with dat and bak using lookaround method
+>>> import re
+>>> expr = "vlan.dat\nsw1.bak\nconfig.text\npynetauto.dat\nsw1_old.bak\n2960x-universalk9-mz.152-2.E6.bin"
+
+> m = re.findall(r".*[.](?!dat$|bak$).*$", expr, re.M)
+>>> m
+['config.text', '2960x-universalk9-mz.152-2.E6.bin']
+
+Ex8 - filter any files ending with dat or bak using ^ negation method
+
+>>> import re
+>>> expr = "file1.bak\nfile2.dat\nfile3.bakup\nfile4.data"
+>>> m = re.findall(r".*[.][^d|^b].*$", expr, re.M)
+>>> m
+[]
+
+Ex9 - filter any files ending with dat or bak using negative lookahead method
+>>> import re
+>>> expr = "file1.bak\nfile2.dat\nfile3.bakup\nfile4.data"
+>>> m = re.findall(r".*[.](?!dat$|bak$).*$", expr, re.M)
+>>> m
+['file3.bakup', 'file4.data']
+
+--------------------------------------------------------------------------------
+9.9.1 Substitute strings using sub
+--------------------------------------------------------------------------------
+Ex1
+>>> import re
+>>> p = re.compile('HP|Juniper|Arista)
+>>> p.sub('Cisco', 'Juniper router, HP switch, Arista AP and Palo Alto firewall')
+'Cisco router, Cisco switch, Cisco AP and Palo Alto firewall'
+
+Ex2
+>>> p.sub('Cisco', 'Juniper router, HP switch, Arista AP and Palo Alto firewall', count=1)
+'Cisco router, HP switch, Arista AP and Palo Alto firewall'
+
+Ex3
+>>> import re
+>>> expr = '''Juniper router, HP switch, Palo Alto firewall, Juniper router, HP switch, Palo Alto firewall, Juniper router, HP switch, Palo Alto firewall, Juniper router, HP switch, Palo Alto firewall, Juniper router, HP switch, Palo Alto firewall, Juniper router, HP switch, Palo Alto firewall, and Arista router'''
+>>> p = re.compile('HP|Juniper|Arista')
+>>> p.subn('Cisco', expr)
+('Cisco router, Cisco switch, Palo Alto firewall, Cisco router, Cisco switch, Palo Alto firewall, Cisco router, Cisco switch, Palo Alto firewall, Cisco router, Cisco switch, Palo Alto firewall, Cisco router, Cisco switch, Palo Alto firewall, Cisco router, Cisco switch, Palo Alto firewall and Cisco router', 13)
+
+--------------------------------------------------------------------------------
+9.9.2 Using sub and \g to swap positions
+--------------------------------------------------------------------------------
+Ex1
+>>> import re
+>>> expr = "Model Number : WS-C3650-48PD"
+>>> p = re.compile(r"(\w+\s\w+)(\s[:]\s)(\w+[-]\w+[-]\w+)") (r"(grp1)(grp2)(grp3)")
+>>> m = p.sub("\g<3>\g<2>\g<1>", expr)
+>>> print(m)
+WS-C3650-48PD : Model Number
+
+Ex2
+>>> p = re.compile(r"(?P<Desc>\w+\s\w+)(\s[:]\s)(?P<Model>(\w+[-]\w+[-]\w+))")
+>>> m = p.sub("\g<Model>\g<2>\g<Desc>", expr)
+>>> print(m)
+WS-C3650-48PD : Model Number
+
+Ex3
+>>> p = re.compile(r"(?P<Desc>\w+\s\w+)\s[:]\s(?P<Model>(\w+[-]\w+[-]\w+))")
+>>> m = p.sub("\g<Model> : \g<Desc>", expr)
+>>> print(m)
+WS-C3650-48PD : Model Number
+
+--------------------------------------------------------------------------------
+9.9.3 Insert a function in sub method
+--------------------------------------------------------------------------------
+Ex1 - decimal to binary using join method
+>>> ip = '172.168.123.245'
+>>> print ('.'.join([bin(int(x)+256)[3:] for x in ip.split('.')]))
+10101100.10101000.01111011.11110101
+
+Ex2 - decimal to binary using sub method
+>>> ip = '172.168.123.245'
+>>> def dec2bin(match):
+...     value = int(match.group())
+...     return bin(value)
+...
+>>> p = re.compile(r'\d+')
+>>> p.sub(dec2bin, ip)
+'0b10101100.0b10101000.0b1111011.0b11110101'
+
+Ex3 - binary to decimal using join method
+>>> ip = “00001010.11010110.10001011.10111101”
+>>> ip1 = ip.replace(".", "")
+>>> ip1
+'00001010110101101000101110111101'
+>>> def bin2dec():
+...     return ".".join(map(str, int(ip1, 2).to_bytes(4, "big")))
+...
+>>> bin2dec()
+'10.214.139.189'
+
+Ex4 – hexadecimal to decimal numbers
+>>> mac = "84:3d:c6:f5:c9:ba"
+>>> mac1 = mac.replace(":", "")
+>>> mac1
+'843dc6f5c9ba'
+>>> i = int(mac1, 16)
+>>> str(i)
+'145400865868218'
+
+Ex5 - decimal to hexadecial
+>>> def hexrepl(match):
+...     value = int(match.group())
+...     return hex(value)
+...
+>>> p = re.compile(r"\d+")
+>>> p.sub(hexrepl, 'MAC address: 145400865868218')
+
+'MAC address: 0x843dc6f5c9ba'
+--------------------------------------------------------------------------------
+End.
+--------------------------------------------------------------------------------

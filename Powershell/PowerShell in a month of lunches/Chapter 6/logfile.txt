@@ -1,0 +1,70 @@
+
+Name                           Value
+----                           -----
+__COMPAT_LAYER                 Installer
+_OLD_VIRTUAL_PATH              C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.5.0_x64__8wekyb3d8bbwe;c:\Users\David\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\David\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\Amazon\AWSCLIV2\;C:\Users\David\AppData\Local\Programs\Python\Launcher\;C:\Users\David\AppData\Local\Microsoft\WindowsApps;C:\Users\David\OneDrive\Desktop\Script Repository\Python;C:\Users\David\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\David\AppData\Roaming\npm;C:\Users\David\AppData\Local\Programs\Python\Python313\Scriptsc:\Users\David\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\scripts\noConfigScripts
+ACSetupSvcPort                 23210
+ACSvcPort                      17532
+ALLUSERSPROFILE                C:\ProgramData
+APPDATA                        C:\Users\David\AppData\Roaming
+BUNDLED_DEBUGPY_PATH           c:\Users\David\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy
+CHROME_CRASHPAD_PIPE_NAME      \\.\pipe\crashpad_40576_CXSXWIPHJBHXRXGY
+CLAUDE_CODE_SSE_PORT           42198
+COLORTERM                      truecolor
+CommonProgramFiles             C:\Program Files\Common Files
+CommonProgramFiles(x86)        C:\Program Files (x86)\Common Files
+CommonProgramW6432             C:\Program Files\Common Files
+COMPUTERNAME                   MITCH-GAMING
+ComSpec                        C:\WINDOWS\system32\cmd.exe
+DriverData                     C:\Windows\System32\Drivers\DriverData
+GIT_ASKPASS                    c:\Users\David\AppData\Roaming\Code\User\globalStorage\vscode.git\askpass\493597c785d4c5cb\askpass.sh
+HOMEDRIVE                      C:
+HOMEPATH                       \Users\David
+LANG                           en_US.UTF-8
+LOCALAPPDATA                   C:\Users\David\AppData\Local
+LOGONSERVER                    \\MITCH-GAMING
+NUMBER_OF_PROCESSORS           12
+OneDrive                       C:\Users\David\OneDrive
+OneDriveConsumer               C:\Users\David\OneDrive
+OS                             Windows_NT
+Path                           C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Python\.venv\Scripts;C:\Program Files\WindowsApps\Microsoft.PowerShell_7.5.5.0_x64__8wekyb3d8bbwe;c:\Users\David\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\David\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\Amazon\AWSCLIV2\;C:\Users\David\AppData\Local\Programs\Python\Launcher\;C:\Users\David\AppData\Local\Microsoft\WindowsApps;C:\Users\David\OneDrive\Desktop\Script Repository\Python;C:\Users\David\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\David\AppData\Roaming\npm;C:\Users\David\AppData\Local\Programs\Python\Python313\Scriptsc:\Users\David\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\scripts\noConfigScripts
+PATHEXT                        .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.CPL
+PROCESSOR_ARCHITECTURE         AMD64
+PROCESSOR_IDENTIFIER           AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+PROCESSOR_LEVEL                25
+PROCESSOR_REVISION             2102
+ProgramData                    C:\ProgramData
+ProgramFiles                   C:\Program Files
+ProgramFiles(x86)              C:\Program Files (x86)
+ProgramW6432                   C:\Program Files
+PSModulePath                   C:\Users\David\Documents\PowerShell\Modules;C:\Program Files\PowerShell\Modules;c:\program files\windowsapps\microsoft.powershell_7.5.5.0_x64__8wekyb3d8bbwe\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+PT8HOME                        C:\Program Files\Cisco Packet Tracer 8.2.1
+PUBLIC                         C:\Users\Public
+PYDEVD_DISABLE_FILE_VALIDATION 1
+PYTHON_BASIC_REPL              1
+PYTHONPATH                     C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Python\
+PYTHONSTARTUP                  c:\Users\David\AppData\Roaming\Code\User\workspaceStorage\ba74adad6880cdd761f49bfe6e991316\ms-python.python\pythonrc.py
+RlsSvcPort                     22112
+SystemDrive                    C:
+SystemRoot                     C:\WINDOWS
+TEMP                           C:\Users\David\AppData\Local\Temp
+TERM_PROGRAM                   vscode
+TERM_PROGRAM_VERSION           1.112.0
+TMP                            C:\Users\David\AppData\Local\Temp
+USERDOMAIN                     MITCH-GAMING
+USERDOMAIN_ROAMINGPROFILE      MITCH-GAMING
+USERNAME                       David
+USERPROFILE                    C:\Users\David
+VBOX_HWVIRTEX_IGNORE_SVM_IN_U… 1
+VIRTUAL_ENV                    C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Python\.venv
+VIRTUAL_ENV_PROMPT             .venv
+VSCODE_DEBUGPY_ADAPTER_ENDPOI… c:\Users\David\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\.noConfigDebugAdapterEndpoints\endpoint-0b7b4b18d8c7c00a.txt
+VSCODE_GIT_ASKPASS_EXTRA_ARGS  
+VSCODE_GIT_ASKPASS_MAIN        c:\Users\David\AppData\Roaming\Code\User\globalStorage\vscode.git\askpass\493597c785d4c5cb\askpass-main.js
+VSCODE_GIT_ASKPASS_NODE        C:\Users\David\AppData\Local\Programs\Microsoft VS Code\Code.exe
+VSCODE_GIT_IPC_HANDLE          \\.\pipe\vscode-git-84c70fe5ca-sock
+VSCODE_INJECTION               1
+VSCODE_PYTHON_AUTOACTIVATE_GU… 1
+windir                         C:\WINDOWS
+
+

@@ -1,0 +1,1003 @@
+
+    This example creates a folder with a file inside. Then, attempts to create the same folder using
+    `-Force`. It will not overwrite the folder but simply return the existing folder object with the
+    file created intact.
+    ?
+    ```powershell
+    PS> New-Item -Path .\TestFolder -ItemType Directory
+    PS> New-Item -Path .\TestFolder\TestFile.txt -ItemType File
+    ?
+    PS> New-Item -Path .\TestFolder -ItemType Directory -Force
+    ?
+    Directory: C:\
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    d-----         5/1/2020   8:03 AM                TestFolder
+    ?
+    PS> Get-ChildItem .\TestFolder\
+    ?
+    Directory: C:\TestFolder
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    -a----         5/1/2020   8:03 AM              0 TestFile.txt
+    ```
+
+     --------- Example 9: Use the Force parameter to overwrite existing files ---------
+
+    This example creates a file with a value and then recreates the file using the **Force** parameter.
+    This overwrites the existing file, as you can see by the **Length** property.
+    ?
+    ```powershell
+    PS> New-Item ./TestFile.txt -ItemType File -Value 'This is just a test file'
+    ?
+    Directory: C:\Source\Test
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    -a----         5/1/2020   8:32 AM             24 TestFile.txt
+    ?
+    New-Item ./TestFile.txt -ItemType File -Force
+    ?
+    Directory: C:\Source\Test
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    -a----         5/1/2020   8:32 AM              0 TestFile.txt
+    ```
+    ?
+    > [!NOTE]
+    > When using `New-Item` with the **Force** parameter to create registry keys, the command behaves
+    > the same as when overwriting a file. If the registry key already exists, the key and all
+    > properties and values are overwritten with an empty registry key.
+
+
+RELATED LINKS
+    Online Version https://learn.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.5&WT.mc_id=ps-gethelp
+    Clear-Item Clear-Item.md
+    Copy-Item Copy-Item.md
+    Get-Item Get-Item.md
+    Invoke-Item Invoke-Item.md
+    Move-Item Move-Item.md
+    Remove-Item Remove-Item.md
+    Rename-Item Rename-Item.md
+    Set-Item Set-Item.md
+    about_Providers ../Microsoft.PowerShell.Core/About/about_Providers.md
+
+
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> New-Item -Path '.\Script-repo\Powershell\PowerShell in a month of lunches\Chapter 6' -Type Directory
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\PowerShell in a month of lunches
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           3/22/2026  2:10 PM                Chapter 6
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> get-Childitem C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\
+Get-ChildItem: Cannot find path 'C:\Users\David\OneDrive\Desktop\Script' because it does not exist.
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> get-Childitem 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\'
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+lar--           3/22/2026  2:10 PM                PowerShell in a month of lunches
+la---            3/2/2026  8:04 AM            141 ping test.ps1
+la---            6/7/2024  1:25 PM            464 pingsweep1.ps1
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> get-Childitem 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\' -Recursive
+Get-ChildItem: A parameter cannot be found that matches parameter name 'Recursive'.
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> get-Childitem 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\' -Recurse  
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+lar--           3/22/2026  2:10 PM                PowerShell in a month of lunches
+la---            3/2/2026  8:04 AM            141 ping test.ps1
+la---            6/7/2024  1:25 PM            464 pingsweep1.ps1
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+lar--            3/7/2026 12:25 PM                Chapter 3
+lar--            3/7/2026 12:27 PM                Chapter 4
+lar--           3/18/2026  4:21 PM                Chapter 5
+lar--           3/22/2026  2:10 PM                Chapter 6
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 3
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+la---            3/7/2026 12:25 PM          81254 PowerShell_transcript.MITCH-GAMING.x1ai7r+b.20260307115835.txt
+la---            3/7/2026 11:49 AM          21474 Processes.txt
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Process -Id $PID | ConvertTo-html | Out-File -Path 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\Powershell in a month of lunches\Chapter 6\'
+Out-File: Could not find a part of the path 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\Powershell in a month of lunches\Chapter 6\'.
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Process -Id $PID | ConvertTo-html | Out-File -Path 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 6  
+>>
+>> ^C
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Process -Id $PID | ConvertTo-html | Out-File -Path 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\Powershell in a month of lunches\Chapter 6\processes.html 
+>>
+>>
+>>
+>>
+>>
+>> ^C
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Process -Id $PID | Convertto-html | Out-file -Path 'c:\users\david\onedrive\desktop\script repository\script-repo\powershell\powershell in a month of lunches\chapter 6\processes.html'
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Out-file -Filepath 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 6\explanation.txt'
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Help Out-File -examples                                                                            
+
+NAME
+    Out-File
+
+SYNOPSIS
+    Sends output to a file.
+
+
+    --------- Example 1: Send output and create a file ---------
+
+    This example shows how to send a list of the local computer's processes to a file. If the file does
+    not exist, `Out-File` creates the file in the specified path.
+
+    ```powershell
+    Get-Process | Out-File -FilePath .\Process.txt
+    Get-Content -Path .\Process.txt
+    ```
+
+    ```Output
+     NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+     ------    -----      -----     ------      --  -- -----------
+         29    22.39      35.40      10.98   42764   9 Application
+         53    99.04     113.96       0.00   32664   0 CcmExec
+         27    96.62     112.43     113.00   17720   9 Code
+    ```
+
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The **Process**
+    objects are sent down the pipeline to the `Out-File` cmdlet. `Out-File` uses the **FilePath**
+    parameter and creates a file in the current directory named **Process.txt**. The `Get-Content`
+    command gets content from the file and displays it in the PowerShell console.
+
+     --------- Example 2: Prevent an existing file from being overwritten ---------
+
+    This example prevents an existing file from being overwritten. By default, `Out-File` overwrites
+    existing files.
+
+    ```powershell
+    Get-Process | Out-File -FilePath .\Process.txt -NoClobber
+    ```
+
+    ```Output
+    Out-File : The file 'C:\Test\Process.txt' already exists.
+    At line:1 char:15
+    + Get-Process | Out-File -FilePath .\Process.txt -NoClobber
+    +               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ```
+
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The **Process**
+    objects are sent down the pipeline to the `Out-File` cmdlet. `Out-File` uses the **FilePath**
+    parameter and attempts to write to a file in the current directory named **Process.txt**. The
+    **NoClobber** parameter prevents the file from being overwritten and displays a message that the
+    file already exists.
+
+     --------- Example 3: Send output to a file in ASCII format ---------
+
+    This example shows how to encode output with a specific encoding type.
+
+    ```powershell
+    $Procs = Get-Process
+    Out-File -FilePath .\Process.txt -InputObject $Procs -Encoding ascii -Width 50
+    ```
+
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The **Process**
+    objects are stored in the variable, `$Procs`. `Out-File` uses the **FilePath** parameter and
+    creates a file in the current directory named **Process.txt**. The **InputObject** parameter passes
+    the process objects in `$Procs` to the file **Process.txt**. The **Encoding** parameter converts
+    the output to **ASCII** format. The **Width** parameter limits each line in the file to 50
+    characters so some data might be truncated.
+
+     --------- Example 4: Use a provider and send output to a file ---------
+
+    This example shows how to use the `Out-File` cmdlet when you aren't in a **FileSystem** provider
+    drive. Use the `Get-PSProvider` cmdlet to view the providers on your local computer. For more
+    information, see [about_Providers](../Microsoft.Powershell.Core/About/about_Providers.md).
+
+    ```
+    PS> Set-Location -Path Alias:
+
+    PS> Get-Location
+
+    Path
+    ----
+    Alias:\
+
+    PS> Get-ChildItem | Out-File -FilePath C:\TestDir\AliasNames.txt
+
+    PS> Get-Content -Path C:\TestDir\AliasNames.txt
+
+    CommandType     Name
+    -----------     ----
+    Alias           % -> ForEach-Object
+    Alias           ? -> Where-Object
+    Alias           ac -> Add-Content
+    Alias           cat -> Get-Content
+    ```
+
+    The `Set-Location` command uses the **Path** parameter to set the current location to the registry
+    provider `Alias:`. The `Get-Location` cmdlet displays the complete path for `Alias:`.
+    `Get-ChildItem` sends objects down the pipeline to the `Out-File` cmdlet. `Out-File` uses the
+    **FilePath** parameter to specify the complete path and filename for the output,
+    **C:\TestDir\AliasNames.txt**. The `Get-Content` cmdlet uses the **Path** parameter and displays
+    the file's content in the PowerShell console.
+
+     --------- Example 5: Set file output width for entire scope ---------
+
+    This example uses `$PSDefaultParameterValues` to set the `Width` parameter for all invocations of
+    `Out-File` and the redirection operators (`>` and `>>`) to 2000. This ensures that everywhere
+    within the current scope that you output table formatted data to file, PowerShell uses a line width
+    of 2000 instead of a line width determined by the PowerShell host's console width.
+
+    ```powershell
+    function DemoDefaultOutFileWidth() {
+        try {
+            $PSDefaultParameterValues['Out-File:Width'] = 2000
+
+    $logFile = "$PWD\logfile.txt"
+
+    Get-ChildItem Env:\ > $logFile
+
+    Get-Service -ErrorAction Ignore |
+                Format-Table -AutoSize |
+                Out-File $logFile -Append
+
+    Get-Process | Format-Table Id,SI,Name,Path,MainWindowTitle >> $logFile
+        }
+        finally {
+            $PSDefaultParameterValues.Remove('Out-File:Width')
+        }
+    }
+
+    DemoDefaultOutFileWidth
+    ```
+
+    For more information about `$PSDefaultParameterValues`, see
+    [about_Preference_Variables](../Microsoft.Powershell.Core/About/about_preference_variables.md#psdefaultparametervalues).
+
+
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Help Out-File
+
+NAME
+    Out-File
+
+SYNOPSIS
+    Sends output to a file.
+
+
+SYNTAX
+    Out-File [-Append <System.Management.Automation.SwitchParameter>] [-Confirm <System.Management.Automation.SwitchParameter>] [[-Encoding]
+    <System.Text.Encoding>] [-FilePath] <System.String> [-Force <System.Management.Automation.SwitchParameter>] [-InputObject
+    <System.Management.Automation.PSObject>] [-NoClobber <System.Management.Automation.SwitchParameter>] [-NoNewline
+    <System.Management.Automation.SwitchParameter>] [-WhatIf <System.Management.Automation.SwitchParameter>] [-Width <System.Int32>] [<CommonParameters>]
+
+    Out-File [-Append <System.Management.Automation.SwitchParameter>] [-Confirm <System.Management.Automation.SwitchParameter>] [[-Encoding]
+    <System.Text.Encoding>] [-Force <System.Management.Automation.SwitchParameter>] [-InputObject <System.Management.Automation.PSObject>] -LiteralPath
+    <System.String> [-NoClobber <System.Management.Automation.SwitchParameter>] [-NoNewline <System.Management.Automation.SwitchParameter>] [-WhatIf
+    <System.Management.Automation.SwitchParameter>] [-Width <System.Int32>] [<CommonParameters>]
+
+
+DESCRIPTION
+    The `Out-File` cmdlet sends output to a file. It implicitly uses PowerShell's formatting system to write to the file. The file receives the same display
+    representation as the terminal. This means that the output may not be ideal for programmatic processing unless all input objects are strings.
+
+    Redirecting the output of a PowerShell command (cmdlet, function, script) using the redirection operator (`>`) is functionally equivalent to piping to
+    `Out-File` with no extra parameters. PowerShell 7.4 changed the behavior of the redirection operator when used to redirect the **stdout** stream of a native     
+    command. For more information about redirection, see [about_Redirection](../Microsoft.PowerShell.Core/About/about_Redirection.md).
+
+
+RELATED LINKS
+    Online Version https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/out-file?view=powershell-7.5&WT.mc_id=ps-gethelp
+    about_Providers ../Microsoft.Powershell.Core/About/about_Providers.md
+    about_Quoting_Rules ../Microsoft.Powershell.Core/About/about_Quoting_Rules.md
+    Out-Default ../Microsoft.PowerShell.Core/Out-Default.md
+    Out-Host ../Microsoft.PowerShell.Core/Out-Host.md
+    Out-Null ../Microsoft.PowerShell.Core/Out-Null.md
+    Out-String Out-String.md
+    Tee-Object Tee-Object.md
+
+REMARKS
+    To see the examples, type: "Get-Help Out-File -Examples"
+    For more information, type: "Get-Help Out-File -Detailed"
+    For technical information, type: "Get-Help Out-File -Full"
+    For online help, type: "Get-Help Out-File -Online"
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Help Out-File -Parameters
+Get-Help: A parameter cannot be found that matches parameter name 'Parameters'.
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Help Out-File -Parameter
+Get-Help: Missing an argument for parameter 'Parameter'. Specify a parameter of type 'System.String[]' and try again.
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Help Out-File -full     
+
+NAME
+    Out-File
+
+SYNOPSIS
+    Sends output to a file.
+
+
+SYNTAX
+    Out-File [-Append <System.Management.Automation.SwitchParameter>] [-Confirm <System.Management.Automation.SwitchParameter>] [[-Encoding]
+    <System.Text.Encoding>] [-FilePath] <System.String> [-Force <System.Management.Automation.SwitchParameter>] [-InputObject
+    <System.Management.Automation.PSObject>] [-NoClobber <System.Management.Automation.SwitchParameter>] [-NoNewline
+    <System.Management.Automation.SwitchParameter>] [-WhatIf <System.Management.Automation.SwitchParameter>] [-Width <System.Int32>] [<CommonParameters>]
+
+    Out-File [-Append <System.Management.Automation.SwitchParameter>] [-Confirm <System.Management.Automation.SwitchParameter>] [[-Encoding]
+    <System.Text.Encoding>] [-Force <System.Management.Automation.SwitchParameter>] [-InputObject <System.Management.Automation.PSObject>] -LiteralPath
+    <System.String> [-NoClobber <System.Management.Automation.SwitchParameter>] [-NoNewline <System.Management.Automation.SwitchParameter>] [-WhatIf
+    <System.Management.Automation.SwitchParameter>] [-Width <System.Int32>] [<CommonParameters>]
+
+
+DESCRIPTION
+    The `Out-File` cmdlet sends output to a file. It implicitly uses PowerShell's formatting system to write to the file. The file receives the same display
+    representation as the terminal. This means that the output may not be ideal for programmatic processing unless all input objects are strings.
+
+    Redirecting the output of a PowerShell command (cmdlet, function, script) using the redirection operator (`>`) is functionally equivalent to piping to
+    `Out-File` with no extra parameters. PowerShell 7.4 changed the behavior of the redirection operator when used to redirect the **stdout** stream of a native     
+    command. For more information about redirection, see [about_Redirection](../Microsoft.PowerShell.Core/About/about_Redirection.md).
+
+
+PARAMETERS
+    -Append [<System.Management.Automation.SwitchParameter>]
+        Adds the output to the end of an existing file.
+
+        Required?                    false
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -Confirm [<System.Management.Automation.SwitchParameter>]
+        Prompts you for confirmation before running the cmdlet.
+
+        Required?                    false
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -Encoding [<System.Text.Encoding>]
+        Specifies the type of encoding for the target file. The default value is `utf8NoBOM`.
+
+        The acceptable values for this parameter are as follows:
+
+        - `ascii`: Uses the encoding for the ASCII (7-bit) character set.
+        - `ansi`: Uses the encoding for the for the current culture's ANSI code page. This option was added
+          in PowerShell 7.4.
+        - `bigendianunicode`: Encodes in UTF-16 format using the big-endian byte order.
+        - `bigendianutf32`: Encodes in UTF-32 format using the big-endian byte order.
+        - `oem`: Uses the default encoding for MS-DOS and console programs.
+        - `unicode`: Encodes in UTF-16 format using the little-endian byte order.
+        - `utf7`: Encodes in UTF-7 format.
+        - `utf8`: Encodes in UTF-8 format.
+        - `utf8BOM`: Encodes in UTF-8 format with Byte Order Mark (BOM)
+        - `utf8NoBOM`: Encodes in UTF-8 format without Byte Order Mark (BOM)
+        - `utf32`: Encodes in UTF-32 format.
+
+        Beginning with PowerShell 6.2, the **Encoding** parameter also allows numeric IDs of registered
+        code pages (like `-Encoding 1251`) or string names of registered code pages (like
+        `-Encoding "windows-1251"`). For more information, see the .NET documentation for
+        [Encoding.CodePage](/dotnet/api/system.text.encoding.codepage?view=netcore-2.2).
+
+        Starting with PowerShell 7.4, you can use the `Ansi` value for the **Encoding** parameter to pass
+        the numeric ID for the current culture's ANSI code page without having to specify it manually.
+
+        > [!NOTE]
+        > **UTF-7*** is no longer recommended to use. As of PowerShell 7.1, a warning is written if you
+        > specify `utf7` for the **Encoding** parameter.
+
+        Required?                    false
+        Position?                    1
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -FilePath <System.String>
+        Specifies the path to the output file.
+
+        Required?                    true
+        Position?                    0
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -Force [<System.Management.Automation.SwitchParameter>]
+        Overrides the read-only attribute and overwrites an existing read-only file. The **Force**
+        parameter doesn't override security restrictions.
+
+        Required?                    false
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -InputObject [<System.Management.Automation.PSObject>]
+        Specifies the objects to be written to the file. Enter a variable that contains the objects or type
+        a command or expression that gets the objects.
+
+        Required?                    false
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -LiteralPath <System.String>
+        Specifies the path to the output file. The **LiteralPath** parameter is used exactly as it's typed.
+        Wildcard characters aren't accepted. If the path includes escape characters, enclose it in single
+        quotation marks. Single quotation marks tell PowerShell not to interpret any characters as escape
+        sequences. For more information, see
+        [about_Quoting_Rules](../Microsoft.Powershell.Core/About/about_Quoting_Rules.md).
+
+        Required?                    true
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -NoClobber [<System.Management.Automation.SwitchParameter>]
+        **NoClobber** prevents an existing file from being overwritten and displays a message that the file
+        already exists. By default, if a file exists in the specified path, `Out-File` overwrites the file
+        without warning.
+
+        Required?                    false
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -NoNewline [<System.Management.Automation.SwitchParameter>]
+        Specifies that the content written to the file doesn't end with a newline character. The string
+        representations of the input objects are concatenated to form the output. No spaces or newlines are
+        inserted between the output strings. No newline is added after the last output string.
+
+        Required?                    false
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -WhatIf [<System.Management.Automation.SwitchParameter>]
+        Shows what would happen if the cmdlet runs. The cmdlet isn't run.
+
+        Required?                    false
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    -Width [<System.Int32>]
+        Specifies the maximum number of characters in each line of output. Any additional characters are
+        truncated, not wrapped. If this parameter isn't used, the width is determined by the
+        characteristics of the host. The default for the PowerShell console is 80 characters. If you want
+        to control the width for all invocations of `Out-File` as well as the redirection operators (`>`
+        and `>>`), set `$PSDefaultParameterValues['Out-File:Width'] = 2000` before using `Out-File`.
+
+        Required?                    false
+        Position?                    Named
+        Default value
+        Accept pipeline input?       false
+        Aliases                      none
+        Accept wildcard characters?  false
+
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+
+INPUTS
+    System.Management.Automation.PSObject
+        You can pipe any object to this cmdlet.
+
+
+OUTPUTS
+    None
+        This cmdlet returns no output.
+
+
+NOTES
+
+
+        Input objects are automatically formatted as they would be in the terminal, but you can use a
+        `Format-*` cmdlet to explicitly control the formatting of the output to the file. For example,
+        `Get-Date | Format-List | Out-File out.txt`
+
+        To send a PowerShell command's output to the `Out-File` cmdlet, use the pipeline. Alternatively, you
+        can store data in a variable and use the **InputObject** parameter to pass data to the `Out-File`
+        cmdlet.
+
+        `Out-File` saves data to a file but it doesn't produce any output objects to the pipeline.
+
+        PowerShell 7.2 added the ability to control how ANSI escape sequences are rendered. ANSI-decorated
+        output that's passed to `Out-File` can be changed based on the setting of the
+        `$PSStyle.OutputRendering` property. For more information, see
+        [about_ANSI_Terminals](/powershell/module/microsoft.powershell.core/about/about_ansi_terminals).
+
+    --------- Example 1: Send output and create a file ---------
+
+    This example shows how to send a list of the local computer's processes to a file. If the file does
+    not exist, `Out-File` creates the file in the specified path.
+
+    ```powershell
+    Get-Process | Out-File -FilePath .\Process.txt
+    Get-Content -Path .\Process.txt
+    ```
+
+    ```Output
+     NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+     ------    -----      -----     ------      --  -- -----------
+         29    22.39      35.40      10.98   42764   9 Application
+         53    99.04     113.96       0.00   32664   0 CcmExec
+         27    96.62     112.43     113.00   17720   9 Code
+    ```
+
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The **Process**
+    objects are sent down the pipeline to the `Out-File` cmdlet. `Out-File` uses the **FilePath**
+    parameter and creates a file in the current directory named **Process.txt**. The `Get-Content`
+    command gets content from the file and displays it in the PowerShell console.
+
+     --------- Example 2: Prevent an existing file from being overwritten ---------
+
+    This example prevents an existing file from being overwritten. By default, `Out-File` overwrites
+    existing files.
+
+    ```powershell
+    Get-Process | Out-File -FilePath .\Process.txt -NoClobber
+    ```
+
+    ```Output
+    Out-File : The file 'C:\Test\Process.txt' already exists.
+    At line:1 char:15
+    + Get-Process | Out-File -FilePath .\Process.txt -NoClobber
+    +               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ```
+
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The **Process**
+    objects are sent down the pipeline to the `Out-File` cmdlet. `Out-File` uses the **FilePath**
+    parameter and attempts to write to a file in the current directory named **Process.txt**. The
+    **NoClobber** parameter prevents the file from being overwritten and displays a message that the
+    file already exists.
+
+     --------- Example 3: Send output to a file in ASCII format ---------
+
+    This example shows how to encode output with a specific encoding type.
+
+    ```powershell
+    $Procs = Get-Process
+    Out-File -FilePath .\Process.txt -InputObject $Procs -Encoding ascii -Width 50
+    ```
+
+    The `Get-Process` cmdlet gets the list of processes running on the local computer. The **Process**
+    objects are stored in the variable, `$Procs`. `Out-File` uses the **FilePath** parameter and
+    creates a file in the current directory named **Process.txt**. The **InputObject** parameter passes
+    the process objects in `$Procs` to the file **Process.txt**. The **Encoding** parameter converts
+    the output to **ASCII** format. The **Width** parameter limits each line in the file to 50
+    characters so some data might be truncated.
+
+     --------- Example 4: Use a provider and send output to a file ---------
+
+    This example shows how to use the `Out-File` cmdlet when you aren't in a **FileSystem** provider
+    drive. Use the `Get-PSProvider` cmdlet to view the providers on your local computer. For more
+    information, see [about_Providers](../Microsoft.Powershell.Core/About/about_Providers.md).
+
+    ```
+    PS> Set-Location -Path Alias:
+
+    PS> Get-Location
+
+    Path
+    ----
+    Alias:\
+
+    PS> Get-ChildItem | Out-File -FilePath C:\TestDir\AliasNames.txt
+
+    PS> Get-Content -Path C:\TestDir\AliasNames.txt
+
+    CommandType     Name
+    -----------     ----
+    Alias           % -> ForEach-Object
+    Alias           ? -> Where-Object
+    Alias           ac -> Add-Content
+    Alias           cat -> Get-Content
+    ```
+
+    The `Set-Location` command uses the **Path** parameter to set the current location to the registry
+    provider `Alias:`. The `Get-Location` cmdlet displays the complete path for `Alias:`.
+    `Get-ChildItem` sends objects down the pipeline to the `Out-File` cmdlet. `Out-File` uses the
+    **FilePath** parameter to specify the complete path and filename for the output,
+    **C:\TestDir\AliasNames.txt**. The `Get-Content` cmdlet uses the **Path** parameter and displays
+    the file's content in the PowerShell console.
+
+     --------- Example 5: Set file output width for entire scope ---------
+
+    This example uses `$PSDefaultParameterValues` to set the `Width` parameter for all invocations of
+    `Out-File` and the redirection operators (`>` and `>>`) to 2000. This ensures that everywhere
+    within the current scope that you output table formatted data to file, PowerShell uses a line width
+    of 2000 instead of a line width determined by the PowerShell host's console width.
+
+    ```powershell
+    function DemoDefaultOutFileWidth() {
+        try {
+            $PSDefaultParameterValues['Out-File:Width'] = 2000
+
+    $logFile = "$PWD\logfile.txt"
+
+    Get-ChildItem Env:\ > $logFile
+
+    Get-Service -ErrorAction Ignore |
+                Format-Table -AutoSize |
+                Out-File $logFile -Append
+    
+    Get-Process | Format-Table Id,SI,Name,Path,MainWindowTitle >> $logFile
+        }
+        finally {
+            $PSDefaultParameterValues.Remove('Out-File:Width')
+        }
+    }
+
+    DemoDefaultOutFileWidth
+    ```
+
+    For more information about `$PSDefaultParameterValues`, see
+    [about_Preference_Variables](../Microsoft.Powershell.Core/About/about_preference_variables.md#psdefaultparametervalues).
+
+
+RELATED LINKS
+    Online Version https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/out-file?view=powershell-7.5&WT.mc_id=ps-gethelp
+    about_Providers ../Microsoft.Powershell.Core/About/about_Providers.md
+    about_Quoting_Rules ../Microsoft.Powershell.Core/About/about_Quoting_Rules.md
+    Out-Default ../Microsoft.PowerShell.Core/Out-Default.md
+    Out-Host ../Microsoft.PowerShell.Core/Out-Host.md
+    Out-Null ../Microsoft.PowerShell.Core/Out-Null.md
+    Out-String Out-String.md
+    Tee-Object Tee-Object.md
+
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Out-file -Filepath 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 6\explanation.txt' -Append 'The file here is an example file created through the Out-File cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file' -Confirm
+Out-File: Cannot process argument transformation on parameter 'Encoding'. 'The file here is an example file created through the Out-File cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file' is not a supported encoding name. For information on defining a custom encoding, see the documentation for the Encoding.RegisterProvider method. (Parameter 'name')
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Out-file -Filepath 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 6\explanation.txt' -Append 'test'                                                                                                     
+Out-File: Cannot process argument transformation on parameter 'Encoding'. 'test' is not a supported encoding name. For information on defining a custom encoding, see the documentation for the Encoding.RegisterProvider method. (Parameter 'name')
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Add-Content -Path 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 6\explanation.txt' -Value 'The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file'           
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-Content .\explanation.txt
+Get-Content: Cannot find path 'C:\Users\David\OneDrive\Desktop\Script Repository\explanation.txt' because it does not exist.
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-help get-content
+
+NAME
+    Get-Content
+
+SYNOPSIS
+    Gets the content of the item at the specified location.
+
+
+SYNTAX
+    Get-Content [-AsByteStream <System.Management.Automation.SwitchParameter>] [-Credential <System.Management.Automation.PSCredential>] [-Delimiter
+    <System.String>] [-Encoding <System.Text.Encoding>] [-Exclude <System.String[]>] [-Filter <System.String>] [-Force
+    <System.Management.Automation.SwitchParameter>] [-Include <System.String[]>] [-Path] <System.String[]> [-Raw <System.Management.Automation.SwitchParameter>]     
+    [-ReadCount <System.Int64>] [-Stream <System.String>] [-Tail <System.Int32>] [-TotalCount <System.Int64>] [-Wait
+    <System.Management.Automation.SwitchParameter>] [<CommonParameters>]
+
+    Get-Content [-AsByteStream <System.Management.Automation.SwitchParameter>] [-Credential <System.Management.Automation.PSCredential>] [-Delimiter
+    <System.String>] [-Encoding <System.Text.Encoding>] [-Exclude <System.String[]>] [-Filter <System.String>] [-Force
+    <System.Management.Automation.SwitchParameter>] [-Include <System.String[]>] -LiteralPath <System.String[]> [-Raw
+    <System.Management.Automation.SwitchParameter>] [-ReadCount <System.Int64>] [-Stream <System.String>] [-Tail <System.Int32>] [-TotalCount <System.Int64>]        
+    [-Wait <System.Management.Automation.SwitchParameter>] [<CommonParameters>]
+
+
+DESCRIPTION
+    The `Get-Content` cmdlet gets the content of the item at the location specified by the path, such as the text in a file or the content of a function. For        
+    files, the content is read one line at a time and returns a collection of objects, each representing a line of content.
+
+    Beginning in PowerShell 3.0, `Get-Content` can also get a specified number of lines from the beginning or end of an item.
+
+
+RELATED LINKS
+    Online Version https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-content?view=powershell-7.5&WT.mc_id=ps-gethelp
+    about_Automatic_Variables ../Microsoft.PowerShell.Core/About/about_Automatic_Variables.md
+    about_Providers ../Microsoft.PowerShell.Core/About/about_Providers.md
+    Add-Content Add-Content.md
+    Clear-Content Clear-Content.md
+    ForEach-Object ../Microsoft.PowerShell.Core/ForEach-Object.md
+    Get-PSProvider Get-PSProvider.md
+    Set-Content Set-Content.md
+
+REMARKS
+    To see the examples, type: "Get-Help Get-Content -Examples"
+    For more information, type: "Get-Help Get-Content -Detailed"
+    For technical information, type: "Get-Help Get-Content -Full"
+    For online help, type: "Get-Help Get-Content -Online"
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-help get-content -examples
+
+NAME
+    Get-Content
+
+SYNOPSIS
+    Gets the content of the item at the specified location.
+
+
+    --------- Example 1: Get the content of a text file ---------
+
+    This example gets the content of a file in the current directory. The `LineNumbers.txt` file
+    has 100 lines in the format, **This is Line X** and is used in several examples.
+
+    ```powershell
+    1..100 | ForEach-Object {
+        Add-Content -Path .\LineNumbers.txt -Value "This is line $_."
+    }
+    Get-Content -Path .\LineNumbers.txt
+    ```
+
+    ```Output
+    This is Line 1
+    This is Line 2
+    ...
+    This is line 99.
+    This is line 100.
+    ```
+
+    The array values 1-100 are sent down the pipeline to the `ForEach-Object` cmdlet. `ForEach-Object`
+    uses a scriptblock with the `Add-Content` cmdlet to create the `LineNumbers.txt` file. The variable
+    `$_` represents the array values as each object is sent down the pipeline. The `Get-Content` cmdlet
+    uses the **Path** parameter to specify the `LineNumbers.txt` file and displays the content in the
+    PowerShell console.
+
+     --------- Example 2: Limit the number of lines Get-Content returns ---------
+
+    This command gets the first five lines of a file. The **TotalCount** parameter gets the first five
+    lines of content. This example uses the `LineNumbers.txt` referenced in Example 1.
+
+    ```powershell
+    Get-Content -Path .\LineNumbers.txt -TotalCount 5
+    ```
+
+    ```Output
+    This is Line 1
+    This is Line 2
+    This is Line 3
+    This is Line 4
+    This is Line 5
+    ```
+
+     --------- Example 3: Get a specific line of content from a text file ---------
+
+    This command gets a specific number of lines from a file and then displays only the last line of
+    that content. The **TotalCount** parameter gets the first 25 lines of content. This example uses the
+    `LineNumbers.txt` file referenced in Example 1.
+
+    ```powershell
+    (Get-Content -Path .\LineNumbers.txt -TotalCount 25)[-1]
+    ```
+
+    ```Output
+    This is Line 25
+    ```
+
+    The `Get-Content` command is wrapped in parentheses so that the command completes before going to
+    the next step. `Get-Content`returns an array of lines, this allows you to add the index notation
+    after the parenthesis to retrieve a specific line number. In this case, the `[-1]` index specifies
+    the last index in the returned array of 25 retrieved lines.
+
+     --------- Example 4: Get the last line of a text file ---------
+
+    This command gets the last line of content from a file. This example uses the `LineNumbers.txt` file
+    that was created in Example 1.
+
+    ```powershell
+    Get-Item -Path .\LineNumbers.txt | Get-Content -Tail 1
+    ```
+
+    ```Output
+    This is Line 100
+    ```
+
+    This example uses the `Get-Item` cmdlet to demonstrate that you can pipe files to `Get-Content`. The
+    **Tail** parameter gets the last line of the file. This method is faster than retrieving all the
+    lines in a variable and using the `[-1]` index notation.
+
+     --------- Example 5: Get the content of an alternate data stream ---------
+
+    This example describes how to use the **Stream** parameter to get the content of an alternate data
+    stream for files stored on a Windows NTFS volume. In this example, the `Set-Content` cmdlet is used
+    to create sample content in a file named `Stream.txt`.
+
+    ```powershell
+    Set-Content -Path .\Stream.txt -Value 'This is the content of the Stream.txt file'
+    # Specify a wildcard to the Stream parameter to display all streams of the recently
+    # created file.
+    Get-Item -Path .\Stream.txt -Stream *
+    ```
+
+    ```Output
+    PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\Test\Stream.txt::$DATA
+    PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\Test
+    PSChildName   : Stream.txt::$DATA
+    PSDrive       : C
+    PSProvider    : Microsoft.PowerShell.Core\FileSystem
+    PSIsContainer : False
+    FileName      : C:\Test\Stream.txt
+    Stream        : :$DATA
+    Length        : 44
+    ```
+
+    ```powershell
+    # Retrieve the content of the primary stream.
+    # Note the single quotes to prevent variable substitution.
+    Get-Content -Path .\Stream.txt -Stream ':$DATA'
+    ```
+
+    ```Output
+    This is the content of the Stream.txt file
+    ```
+
+    ```powershell
+    # Alternative way to get the same content.
+    Get-Content -Path .\Stream.txt -Stream ""
+    # The primary stream doesn't need to be specified to get the primary stream of the file.
+    # This gets the same data as the prior two examples.
+    Get-Content -Path .\Stream.txt
+    ```
+
+    ```Output
+    This is the content of the Stream.txt file
+    ```
+
+    ```powershell
+    # Use the Stream parameter of Add-Content to create a new Stream containing sample
+    # content.
+    $addContentSplat = @{
+        Path = '.\Stream.txt'
+        Stream = 'NewStream'
+        Value = 'Added a stream named NewStream to Stream.txt'
+    }
+    Add-Content @addContentSplat
+
+    # Use Get-Item to verify the stream was created.
+    Get-Item -Path .\Stream.txt -Stream *
+    ```
+
+    ```Output
+    PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\Test\Stream.txt::$DATA
+    PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\Test
+    PSChildName   : Stream.txt::$DATA
+    PSDrive       : C
+    PSProvider    : Microsoft.PowerShell.Core\FileSystem
+    PSIsContainer : False
+    FileName      : C:\Test\Stream.txt
+    Stream        : :$DATA
+    Length        : 44
+
+    PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\Test\Stream.txt:NewStream
+    PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\Test
+    PSChildName   : Stream.txt:NewStream
+    PSDrive       : C
+    PSProvider    : Microsoft.PowerShell.Core\FileSystem
+    PSIsContainer : False
+    FileName      : C:\Test\Stream.txt
+    Stream        : NewStream
+    Length        : 46
+    ```
+
+    ```powershell
+    # Retrieve the content of your newly created Stream.
+    Get-Content -Path .\Stream.txt -Stream NewStream
+    ```
+
+    ```Output
+    Added a stream named NewStream to Stream.txt
+    ```
+
+    The **Stream** parameter is a dynamic parameter of the
+    [FileSystem provider](../Microsoft.PowerShell.Core/About/about_FileSystem_Provider.md#stream-string).
+    By default `Get-Content` only retrieves data from the default, or `:$DATA` stream. **Streams** can
+    be used to store hidden data such as attributes, security settings, or other data. They can also be
+    stored on directories without being child items.
+
+     --------- Example 6: Get raw content ---------
+
+    The commands in this example get the contents of a file as one string, instead of an array of
+    strings. By default, without the **Raw** dynamic parameter, content is returned as an array of
+    newline-delimited strings. This example uses the `LineNumbers.txt` file referenced in Example 1.
+
+    ```powershell
+    $raw = Get-Content -Path .\LineNumbers.txt -Raw
+    $lines = Get-Content -Path .\LineNumbers.txt
+    Write-Host "Raw contains $($raw.Count) lines."
+    Write-Host "Lines contains $($lines.Count) lines."
+    ```
+
+    ```Output
+    Raw contains 1 lines.
+    Lines contains 100 lines.
+    ```
+
+     --------- Example 7: Use Filters with Get-Content ---------
+
+    You can specify a filter to the `Get-Content` cmdlet. When using filters to qualify the **Path**
+    parameter, you need to include a trailing asterisk (`*`) to indicate the contents of the
+    path.
+
+    The following command gets the content of all `*.log` files in the `C:\Temp` directory.
+
+    ```powershell
+    Get-Content -Path C:\Temp\* -Filter *.log
+    ```
+
+     --------- Example 8: Get file contents as a byte array ---------
+
+    This example demonstrates how to get the contents of a file as a `[byte[]]` as a single object.
+
+    ```powershell
+    $byteArray = Get-Content -Path C:\temp\test.txt -AsByteStream -Raw
+    Get-Member -InputObject $byteArray
+    ```
+
+    ```Output
+       TypeName: System.Byte[]
+
+    Name           MemberType            Definition
+    ----           ----------            ----------
+    Count          AliasProperty         Count = Length
+    Add            Method                int IList.Add(System.Object value)
+    ```
+
+    The first command uses the **AsByteStream** parameter to get the stream of bytes from the file. The
+    **Raw** parameter ensures that the bytes are returned as a `[System.Byte[]]`. If the **Raw**
+    parameter was absent, the return value is a stream of bytes, which is interpreted by PowerShell as
+    `[System.Object[]]`.
+
+
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Add-Content -Path 'C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 6\explanation.txt' -Value 'The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file'
+Add-Content: The input object cannot be bound to any parameters for the command either because the command does not take pipeline input or the input and its properties do not match any of the parameters that take pipeline input.
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Add-Content -Value 'The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file'                                                                                                                                           
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Get-Item explanation.txt                            
+Get-Item: The input object cannot be bound to any parameters for the command either because the command does not take pipeline input or the input and its properties do not match any of the parameters that take pipeline input.
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt'
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 6
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+la---           3/22/2026  3:08 PM            448 explanation.txt
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Get-Item
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository\Script-Repo\Powershell\PowerShell in a month of lunches\Chapter 6
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+la---           3/22/2026  3:08 PM            448 explanation.txt
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Get-Content
+The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file
+The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Remove-Item
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Add-Content -Value 'The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file'
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> New-Item -Path '.\Script-repo\Powershell\PowerShell in a month of lunches\Chapter 6\explanation.txt' -type File
+
+    Directory: C:\Users\David\OneDrive\Desktop\Script Repository\Script-repo\Powershell\PowerShell in a month of lunches\Chapter 6
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---           3/22/2026  3:12 PM              0 explanation.txt
+
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Add-Content -Value 'The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file'
+(.venv) PS C:\Users\David\OneDrive\Desktop\Script Repository> Get-ChildItem -Recurse -Filter 'explanation.txt' | Get-Content                                         
+The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file

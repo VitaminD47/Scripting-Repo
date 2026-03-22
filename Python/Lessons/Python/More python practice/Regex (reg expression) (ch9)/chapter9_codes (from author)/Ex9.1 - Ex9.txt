@@ -1,0 +1,97 @@
+9.1.1 To re or not to re
+--------------------------------------------------------------------------------
+Ex9.1- native python methods
+--------------------------------------------------------------------------------
+>>> sw_mac = '''pynetauto-sw01 84:3d:c6:05:09:11
+... pynetauto-sw17 80:7f:f8:80:71:1b
+... pynetauto-sw05 f0:62:81:5a:53:cd'''
+>>> 
+>>> sw_mac = sw_mac.replace(":", "").upper()          # 1
+>>> sw_mac
+
+>>> list1 = sw_mac.split(" ")          # 2
+>>> list1
+
+>>> list2 = []          # 3
+>>> for i in list1:          # 4
+...     list2.append(i.strip())          # 5
+...
+>>> list2
+
+>>> 
+>>> sw_list = []          # 6
+>>> mac_list = []          # 7
+>>> for i in list2:          # 8
+...     if len(i) == 14:          # 9
+...         sw_list.append(i)          # 10
+...     if len(i) == 12:          # 11
+...         i = i[:6] + "******"           # 12
+...         mac_list.append(i)          # 13
+...
+>>> sw_list
+
+>>> mac_list
+
+>>> sw_mac_dict = dict(zip(sw_list, mac_list))          # 14
+>>> for k,v in sw_mac_dict.items():          # 15
+...     print(k, v)          # 16 lines
+...
+
+--------------------------------------------------------------------------------
+Ex9.2 - re example
+--------------------------------------------------------------------------------
+>>> sw_mac = '''pynetauto-sw01 84:3d:c6:05:09:11
+... pynetauto-sw17 80:7f:f8:80:71:1b
+... pynetauto-sw05 f0:62:81:5a:53:cd'''
+>>> import re           # 1
+>>> sw_mac = sw_mac.replace(":", "").upper()          # 2
+>>> pattern = re.compile("([0-9A-F]{6})" "([0-9A-F]{6})")           # 3
+>>> print(pattern.sub("\g<1>******", sw_mac))          # 4
+
+--------------------------------------------------------------------------------
+Ex9.3 - Study regular expression on Python interpreter
+--------------------------------------------------------------------------------
+pynetauto@ubuntu20s1:~$ pwd
+/home/pynetauto
+pynetauto@ubuntu20s1:~$ mkdir ex_regex
+pynetauto@ubuntu20s1:~$ cd ex_regex
+pynetauto@ubuntu20s1:~/ex_regex$ nano sh_ver.txt
+pynetauto@ubuntu20s1:~/ex_regex$ ls
+sh_ver.txt
+pynetauto@ubuntu20s1:~/ex_regex
+pynetauto@ubuntu20s1:~/ex_regex$ python3
+Python 3.8.2 (default, Jul 16 2020, 14:00:26)
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import re
+>>> with open("/home/pynetauto/ex_regex/sh_ver.txt") as f:
+...     read_file = f.read()
+...
+>>> # Only match Cisco router model number from show version output.
+>>> rt_model = re.findall("[A-Z]{3}\d{4}[/]\w+", read_file)
+>>> print(rt_model)
+
+>>> my_router = rt_model[0]
+>>> my_router
+
+--------------------------------------------------------------------------------
+ex9.4 - Study regular expression writing Python code on Linux
+--------------------------------------------------------------------------------
+pynetauto@ubuntu20s1:~/ex_regex$ pwd
+/home/pynetauto/ex_regex
+pynetauto@ubuntu20s1:~/ex_regex$ ls
+sh_ver.txt
+pynetauto@ubuntu20s1:~/ex_regex$ nano ex9.4_sh_ver.py
+pynetauto@ubuntu20s1:~/ex_regex$ cat ex9.4_sh_ver.py
+import re
+with open("/home/pynetauto/ex_regex/sh_ver.txt") as f:
+    read_file = f.read()
+
+# Only match Cisco router model number from show version output.
+rt_model = re.findall("[A-Z]{3}\d{4}[/]\w+", read_file)
+print(rt_model)
+
+my_router = rt_model[0]
+print(my_router)
+pynetauto@ubuntu20s1:~/ex_regex$ python3 ex9.4_sh_ver.py
+

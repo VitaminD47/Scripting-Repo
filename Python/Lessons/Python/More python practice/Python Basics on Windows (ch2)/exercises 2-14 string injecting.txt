@@ -1,0 +1,39 @@
+
+## you can use % and %s together to substitute values in a string:
+
+#1
+
+exam_result = 95
+>>> text_message = 'congrats, you have scored %s in your exam!'
+>>> print(text_message)
+congrats, you have scored %s in your exam!
+>>> print(text_message% exam_result)
+congrats, you have scored 95 in your exam!
+
+
+#2 
+
+wish = 'you need %s to make your wish come true.'
+>>> genie = 'a genie in the bottle'
+>>> print(wish% genie)
+you need a genie in the bottle to make your wish come true.
+
+
+# you can enter a digit variable into a string message using %s, or a string variable using %scored
+# the values don't have to be defined as variables first, they can be added directly like this via arguments:
+
+ccnp_score = 'my exam scores are %s for ENCOR, %s for ENARSI, and %s for ENAUTO.'
+>>> ccnp_score% (95,92,90)
+'my exam scores are 95 for ENCOR, 92 for ENARSI, and 90 for ENAUTO.'
+
+#string formatting with curly brackets using .format() method
+she is {} years old.'.format(25)
+'she is 25 years old.'
+
+#To show {} within a string, you use double curly brackets. To show {value} in a string, you must use triple curly brackets like this :
+
+'she is {{{}}} years old.'.format(25)
+'she is {25} years old.'
+
+
+

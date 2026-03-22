@@ -1,0 +1,1 @@
+The file here is an example file created through the Add-Content cmdlet. In addition, the processes.html file contained in this folder was created through the ConvertTo-Html cmdlet combined through pipeline | with Out-file
